@@ -4,7 +4,7 @@
 
 # Front
 
-- Le coté **Front** est composé du **framework** Angular et du **framework** Tailwinds.
+- Le coté **Front** est composé du **framework** Angular, Tailwinds et DaisyUI.
 
 _<h4>Securité :</h4>_
 
