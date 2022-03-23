@@ -13,3 +13,23 @@ _<h4>Securité :</h4>_
 # Back
 
 - Le coté **Back** est géré grâce à **Spring Boot** qui va traiter les demandes de connexions utilisateurs et également participer au stockages et à la distribution via API des données des joueurs, équipes, paris joués...
+
+_<h4>Utilisateurs :</h4>_
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">User Entity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <td>Email</td>
+            <td>Username</td>
+            <td>Password</td>
+            <td>BetHistory</td>
+            <td>GuildId</td>
+        </tr>
+    </tbody>
+</table>
