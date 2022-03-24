@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd front & ng build --prod"
+    "start": "cd front & node server.js"
   },
   "repository": {
     "type": "git",
@@ -16,18 +16,5 @@
   "bugs": {
     "url": "https://github.com/xReapex/bestix/issues"
   },
-  "homepage": "https://github.com/xReapex/bestix#readme",
-  "engines": {
-    "node": "14.17.6",
-    "npm": "6.14.15"
-  },
-  "dependencies": {
-    "express": "^4.17.3",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "@angular/cli": "^13.3.0",
-    "@angular/compiler-cli": "^13.3.0",
-    "enhanced-resolve": "^3.3.0"
-  }
+  "homepage": "https://github.com/xReapex/bestix#readme"
 }
