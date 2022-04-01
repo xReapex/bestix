@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ApiCallTestComponent } from './components/api-call-test/api-call-test.component';
 
 const routes: Routes = [];
 
@@ -17,6 +18,10 @@ const routes: Routes = [];
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'tests',
+        component: ApiCallTestComponent
       },
       {
         path: '**',
