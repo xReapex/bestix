@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+  crossorigin="anonymous" />
 
 
 <div class="bg-gradient-to-tr from-blue-800 to-purple-700 min-h-screen overflow-auto">
@@ -6,143 +8,136 @@
 
 
 
-    <h2 style ="color:white;"> Toto TEST Buttons </h2>
+    <h2 style="color:white;"> Toto TEST Buttons </h2>
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="testHTTPGetToto()">
-         GET Toto
-      </button>
-  
-      <br>
-      <br>
+      GET Toto
+    </button>
 
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="testHTTPPutToto()">
-        POST Toto
-      </button>
+    <br>
+    <br>
 
-
-      <br>
-      <br>      <br>
-      <br>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="testHTTPPutToto()">
+      POST Toto
+    </button>
 
 
-  <h2 style ="color:white;"> Players TEST Buttons </h2>
-  <h2 style ="color: white;">For all these buttons, go to Inspect > Console to see results</h2>
-  <br>
-  
-  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="getPlayersList()">
-        GET All Players (from database)
-      </button>
+    <br>
+    <br> <br>
+    <br>
 
-      <form class="w-full max-w-sm">
-        <div class="flex items-center border-b border-teal-500 py-2">
-            <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded" type="button"
-            (click)="getPlayerById()">
-              GET Player by ID
-            </button>
 
-          <input
+    <h2 style="color:white;"> Players TEST Buttons </h2>
+    <h2 style="color: white;">For all these buttons, go to Inspect > Console to see results</h2>
+    <br>
+
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="getPlayersList()">
+      GET All Players (from database)
+    </button>
+
+    <form class="w-full max-w-sm">
+      <div class="flex items-center border-b border-teal-500 py-2">
+        <button
+          class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button" (click)="getPlayerById()">
+          GET Player by ID
+        </button>
+
+        <input
           class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="getPlayerIdInput" 
-          [(ngModel)]="currentPlayerId"
-          placeholder="Type Player ID" 
+          [formControl]="getPlayerIdInput" [(ngModel)]="currentPlayerId" placeholder="Type Player ID" type="text">
+      </div>
+    </form>
+
+    <form class="w-full max-w-sm">
+      <div class="flex items-center border-b border-teal-500 py-2">
+        <button
+          class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button" (click)="getExternalPlayerById()">
+          GET Player by ID from TheSportsDB
+        </button>
+
+        <input
+          class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+          [formControl]="getPlayerIdSportsDBInput" [(ngModel)]="currentPlayerIdSportsDB" placeholder="Type Player ID"
           type="text">
-        </div>
-      </form>
+        <p style="color:white;">ID Exemple : 34145937</p>
+      </div>
+    </form>
 
-      <form class="w-full max-w-sm">
-        <div class="flex items-center border-b border-teal-500 py-2">
-            <button class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded" type="button"
-            (click)="getExternalPlayerById()">
-              GET Player by ID from TheSportsDB
-            </button>
 
-          <input
+    <br>
+    <br>
+
+
+    <form class="w-full max-w-sm">
+      <div class="flex items-center border-b border-teal-500 py-2">
+
+        <button
+          class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button" (click)="postPlayerDefault()">
+          POST Player with default name : "Omelette"
+        </button>
+      </div>
+    </form>
+
+
+    <form class="w-full max-w-sm">
+      <div class="flex items-center border-b border-teal-500 py-2">
+        <button
+          class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button" (click)="postPlayerCustomName()">
+          POST Player with custom name
+        </button>
+
+        <input
           class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="getPlayerIdSportsDBInput" 
-          [(ngModel)]="currentPlayerIdSportsDB"
-          placeholder="Type Player ID" 
+          [formControl]="postPlayerNameInput" [(ngModel)]="currentPlayerName" placeholder="Type player name"
           type="text">
-          <p style = "color:white;">ID Exemple : 34145937</p>
-        </div>
-      </form>
+      </div>
+    </form>
 
 
-      <br>
-      <br>
 
+    <br>
+    <br> <br>
+    <br>
 
-      <form class="w-full max-w-sm">
-        <div class="flex items-center border-b border-teal-500 py-2">
+    <form class="w-full max-w-sm">
+      <div class="flex items-center border-b border-teal-500 py-2">
+        <button
+          class="flex-shrink-0 bg-red-500 hover:bg-orange-700 border-red-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button" (click)="deletePlayerById()">
+          DELETE Player by ID
+        </button>
 
-          <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button"
-          (click)="postPlayerDefault()">
-            POST Player with default name : "Omelette"
-          </button>
-        </div>
-      </form>
-
-
-      <form class="w-full max-w-sm">
-        <div class="flex items-center border-b border-teal-500 py-2">
-            <button class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"type="button"
-            (click)="postPlayerCustomName()">
-              POST Player with custom name
-            </button>
-
-          <input
+        <input
           class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="postPlayerNameInput" 
-          [(ngModel)]="currentPlayerName"
-          placeholder="Type player name" 
+          [formControl]="deletePlayerIdInput" [(ngModel)]="currentDeletePlayerId" placeholder="Type player ID"
           type="text">
-        </div>
-      </form>
+      </div>
+    </form>
 
 
-      
-      <br>
-      <br>      <br>
-      <br>
+    <form class="w-full max-w-sm">
+      <div class="flex items-center border-b border-teal-500 py-2">
+        <button
+          class="flex-shrink-0 bg-red-500 hover:bg-orange-700 border-red-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button" (click)="putPlayerNameById()">
+          PUT Player name by ID
+        </button>
 
-      <form class="w-full max-w-sm">
-        <div class="flex items-center border-b border-teal-500 py-2">
-            <button class="flex-shrink-0 bg-red-500 hover:bg-orange-700 border-red-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 rounded" type="button"
-            (click)="deletePlayerById()">
-              DELETE Player by ID
-            </button>
-
-          <input
+        <input
           class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="deletePlayerIdInput" 
-          [(ngModel)]="currentDeletePlayerId"
-          placeholder="Type player ID" 
-          type="text">
-        </div>
-      </form>
-
-
-      <form class="w-full max-w-sm">
-        <div class="flex items-center border-b border-teal-500 py-2">
-            <button class="flex-shrink-0 bg-red-500 hover:bg-orange-700 border-red-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 rounded" type="button"
-            (click)="putPlayerNameById()">
-              PUT Player name by ID
-            </button>
-
-          <input
-          class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="putPlayerNameByIdInput" 
-          [(ngModel)]="currentPutPlayerId"
-          placeholder="Type player ID" 
+          [formControl]="putPlayerNameByIdInput" [(ngModel)]="currentPutPlayerId" placeholder="Type player ID"
           type="text">
 
-          <input
+        <input
           class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="putPlayerNameByIdInput" 
-          [(ngModel)]="currentPutPlayerName"
-          placeholder="Type player new name" 
+          [formControl]="putPlayerNameByIdInput" [(ngModel)]="currentPutPlayerName" placeholder="Type player new name"
           type="text">
 
-        </div>
-      </form>
+      </div>
+    </form>
 
   </div>
 </div>

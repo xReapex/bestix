@@ -13,12 +13,12 @@ export class ApiCallTestComponent implements OnInit {
 
 
   //GET
-   /** Current value of the input box */
-   currentPlayerId = '';
-   currentPlayerIdSportsDB = '';
-   
-   //POST - Create a player
-   currentPlayerName = '';
+  /** Current value of the input box */
+  currentPlayerId = '';
+  currentPlayerIdSportsDB = '';
+
+  //POST - Create a player
+  currentPlayerName = '';
 
   //DELETE
   currentDeletePlayerId = '';
@@ -28,27 +28,27 @@ export class ApiCallTestComponent implements OnInit {
   currentPutPlayerName = '';
 
 
-   /** 
-    * Form control for input element where user types
-    * Requires ngModule import of ReactiveFormsModule
-    */
+  /** 
+   * Form control for input element where user types
+   * Requires ngModule import of ReactiveFormsModule
+   */
 
-   //GET 
-   getPlayerIdInput = new FormControl();
-   getPlayerIdSportsDBInput = new FormControl();
+  //GET 
+  getPlayerIdInput = new FormControl();
+  getPlayerIdSportsDBInput = new FormControl();
 
-   //POST
-   postPlayerNameInput = new FormControl();
+  //POST
+  postPlayerNameInput = new FormControl();
 
-   //DELETE
-   deletePlayerIdInput = new FormControl();
+  //DELETE
+  deletePlayerIdInput = new FormControl();
 
-   //PUT
+  //PUT
   putPlayerNameByIdInput = new FormControl();
 
- 
-   /** Observable of array of accumulated user inputs */
-   history$: Observable<string[]>;
+
+  /** Observable of array of accumulated user inputs */
+  history$: Observable<string[]>;
 
 
 
@@ -60,9 +60,9 @@ export class ApiCallTestComponent implements OnInit {
       // Accumlate input values; clear when input is empty
       scan((acc, t) => t ? acc.concat(t) : [], [])
     );
-   }
+  }
 
-  public value1 : string | undefined;
+  public value1: string | undefined;
   public playerName: string | undefined;
 
   ngOnInit(): void {
@@ -71,133 +71,118 @@ export class ApiCallTestComponent implements OnInit {
   testHTTPGetToto() {
     this.httpClient.get('/api/toto').subscribe(response => {
       console.log("[GET] from back : ", response);
-      } , error => {
-        console.log("[GET] Erreur", error);
-      } )
-  console.log("[EVENT] Button GET Toto pressed");
+    }, error => {
+      console.log("[GET] Erreur", error);
+    })
+    console.log("[EVENT] Button GET Toto pressed");
   }
-  
-  
-  testHTTPPutToto()
-  {
+
+
+  testHTTPPutToto() {
     let body = {
       value: 2,
       message: "Message de toto",
       date: new Date(),
       stringList: ["Croissant", "baguette du fromage"]
-  
+
     }
     this.httpClient.post('/api/toto', body).subscribe(response => {
       console.log("[POST] from back : ", response);
-      } , error => {
-        console.log("[POST] Erreur", error);
-      } )
-  console.log("[EVENT] Button POST Toto pressed");
+    }, error => {
+      console.log("[POST] Erreur", error);
+    })
+    console.log("[EVENT] Button POST Toto pressed");
   }
-
 
   /*
   Players
   */
-
-getPlayersList()
-{
-  this.httpClient.get('/api/players/all').subscribe(response => {
-    console.log("[GET] from back : ", response);
-    } , error => {
+  getPlayersList() {
+    this.httpClient.get('/api/players/all').subscribe(response => {
+      console.log("[GET] from back : ", response);
+    }, error => {
       console.log("[GET] Erreur", error);
-    } )
-  console.log("[EVENT] Button GET PlayersList pressed");
-}
+    })
+    console.log("[EVENT] Button GET PlayersList pressed");
+  }
 
-getPlayerById()
-{
-  
-  let id = this.currentPlayerId;
+  getPlayerById() {
 
-  this.httpClient.get('/api/players/' + id).subscribe(response => {
-    console.log("[GET] from back : ", response);
-    } , error => {
+    let id = this.currentPlayerId;
+
+    this.httpClient.get('/api/players/' + id).subscribe(response => {
+      console.log("[GET] from back : ", response);
+    }, error => {
       console.log("[GET] Erreur", error);
-    } )
-  console.log("[EVENT] Button GET Player by ID pressed");
+    })
+    console.log("[EVENT] Button GET Player by ID pressed");
 
-}
-
-
-getExternalPlayerById()
-{
-  //ID Exemple : 34145937
-  let id = this.currentPlayerIdSportsDB;
-
-  this.httpClient.get('/api/external/players/' + id).subscribe(response => {
-    console.log("[GET] from back : ", response);
-    } , error => {
-      console.log("[GET] Erreur", error);
-    } )
-  console.log("[EVENT] Button GET Player external pressed");
-}
-
-postPlayerDefault()
-{
-  let body = {
-    playerName: "Omelette"
   }
 
 
-  this.httpClient.post('/api/players/add', body).subscribe(response => {
-    console.log("[POST] from back : ", response);
-    } , error => {
+  getExternalPlayerById() {
+    //ID Exemple : 34145937
+    let id = this.currentPlayerIdSportsDB;
+
+    this.httpClient.get('/api/external/players/' + id).subscribe(response => {
+      console.log("[GET] from back : ", response);
+    }, error => {
+      console.log("[GET] Erreur", error);
+    })
+    console.log("[EVENT] Button GET Player external pressed");
+  }
+
+  postPlayerDefault() {
+    let body = {
+      playerName: "Omelette"
+    }
+
+
+    this.httpClient.post('/api/players/add', body).subscribe(response => {
+      console.log("[POST] from back : ", response);
+    }, error => {
       console.log("[POST] Erreur", error);
-    } )
-console.log("[EVENT] Button POST Player pressed");
-}
-
-
-postPlayerCustomName()
-{
-  let body = {
-    playerName: this.currentPlayerName
+    })
+    console.log("[EVENT] Button POST Player pressed");
   }
 
 
-  this.httpClient.post('/api/players/add', body).subscribe(response => {
-    console.log("[POST] from back : ", response);
-    } , error => {
+  postPlayerCustomName() {
+    let body = {
+      playerName: this.currentPlayerName
+    }
+
+
+    this.httpClient.post('/api/players/add', body).subscribe(response => {
+      console.log("[POST] from back : ", response);
+    }, error => {
       console.log("[POST] Erreur", error);
-    } )
-console.log("[EVENT] Button POST Player Name pressed");
-}
+    })
+    console.log("[EVENT] Button POST Player Name pressed");
+  }
 
-deletePlayerById()
-{
-  let id = this.currentDeletePlayerId;
+  deletePlayerById() {
+    let id = this.currentDeletePlayerId;
 
-  this.httpClient.delete('/api/players/' + id).subscribe(response => {
-    console.log("[DELETE] from back : ", response);
-    } , error => {
+    this.httpClient.delete('/api/players/' + id).subscribe(response => {
+      console.log("[DELETE] from back : ", response);
+    }, error => {
       console.log("[DELETE] Erreur", error);
-    } )
-console.log("[EVENT] Button DELETE Player pressed");
-}
-
-putPlayerNameById()
-{
-  let id = this.currentPutPlayerId;
-  let name = this.currentPutPlayerName;
-
-  let body = {
-    name
+    })
+    console.log("[EVENT] Button DELETE Player pressed");
   }
 
-  this.httpClient.put('/api/players/' + id, name).subscribe(response => {
-    console.log("[PUT] from back : ", response);
-    } , error => {
+  putPlayerNameById() {
+    let id = this.currentPutPlayerId;
+    let name = this.currentPutPlayerName;
+    let body = { name }
+
+    this.httpClient.put('/api/players/' + id, name).subscribe(response => {
+      console.log("[PUT] from back : ", response);
+    }, error => {
       console.log("[PUT] Erreur", error);
-    } )
-console.log("[EVENT] Button PUT Player pressed");
-}
-
-
+    })
+    console.log("[EVENT] Button PUT Player pressed");
+  }
 
 }
