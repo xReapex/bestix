@@ -10,9 +10,6 @@ export class PlayerServiceService {
     // Base URL for TheSportsDB
     private baseUrlTheSportsDB = "https://www.thesportsdb.com/api/v1/json/2/lookupplayer.php?id=";
 
-    // Base URL for Back-End API
-    private baseUrlBackEndAPI= "https://api.themoviedb.org/3";
-
     public playerData:any = [];
 
   constructor(private http: HttpClient) { }
