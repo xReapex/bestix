@@ -2,7 +2,7 @@
 
 - **Bestix** est un site web permettant d'organiser des compétitions de **paris sur le foot** entre amis ou pour une communauté.
 
-- Le créateur de la League peut choisir les matchs sur lesquels les paris seront placés par chaque joueur et le nombre de jetons de départ, chaque joueurs peut choisir le résultat du match (1, X, 2) et même faire un paris "Double chance" (1X, 12, X2) où la cote sert de multiplicateur au vainqueur.
+- Le créateur de la League peut choisir les matchs sur lesquels les paris seront placés par chaque joueur et le nombre de jetons de départ, chaque joueurs peut choisir le résultat du match (1, X, 2) où la cote sert de multiplicateur au vainqueur.
 
 # Front
 
@@ -35,3 +35,8 @@ _<h4>Utilisateurs :</h4>_
         </tr>
     </tbody>
 </table>
+
+# API
+
+- Récupération des matchs : https://www.football-data.org/documentation/api
+- Récupération des cotes : https://rapidapi.com/theoddsapi/api/live-sports-odds/
