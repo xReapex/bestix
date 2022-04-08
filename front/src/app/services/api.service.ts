@@ -1,29 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
   // Use HttpClient
   constructor(private http: HttpClient) {}
 
-  // Api base url
-  private baseUrl = "http://localhost:8080/api";
+  private headers = new HttpHeaders().set(
+    'X-Auth-Token',
+    environment.match_api
+  );
 
-  // Request API with endpoint
-  private requestAPI(endpoint: String)
-  {
-    return this.http.get(`${this.baseUrl}${endpoint}`);
+  public getNextMatch() {
+    return this.http.get("http://api.football-data.org/v2/competitions/FL1/matches?status=SCHEDULED", {
+      headers: this.headers,
+    });
   }
-
-  getPlayersByName(name: string) {
-    return this.requestAPI(`/players/${name}`)
-  }
-
-  sayHello() {
-    return this.requestAPI('/hello')
-  }
-
 }
