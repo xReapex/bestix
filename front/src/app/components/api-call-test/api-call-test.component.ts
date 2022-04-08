@@ -134,7 +134,7 @@ export class ApiCallTestComponent implements OnInit {
 
   postPlayerDefault() {
     let body = {
-      playerName: "Omelette"
+      playerName: "Franck"
     }
 
 
