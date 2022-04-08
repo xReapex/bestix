@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './landing/landing.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './views/login/login.component';
+import { LandingComponent } from './views/landing/landing.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { ApiCallTestComponent } from './components/api-call-test/api-call-test.component';
+import { PlayerCardComponent } from './components/player-card/player-card.component';
+import { PlayersViewComponent } from './views/players-view/players-view.component';
 
 const routes: Routes = [];
 
@@ -22,6 +24,10 @@ const routes: Routes = [];
       {
         path: 'tests',
         component: ApiCallTestComponent
+      },
+      {
+        path: 'player-card-test',
+        component: PlayersViewComponent
       },
       {
         path: '**',
