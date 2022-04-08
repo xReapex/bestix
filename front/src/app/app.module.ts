@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BettingCardComponent } from './betting-card/betting-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ApiCallTestComponent } from './components/api-call-test/api-call-test.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,15 @@ import { BettingCardComponent } from './betting-card/betting-card.component';
     LoginComponent,
     LandingComponent,
     DashboardComponent,
-    BettingCardComponent
+    BettingCardComponent,
+    ApiCallTestComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
