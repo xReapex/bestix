@@ -14,11 +14,20 @@ export class PlayerCardComponent implements OnInit {
   @Input()
   playerImage: string | undefined;
 
-  public playerData: any = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.playerDesc);
+
+    if(!this.playerDesc)
+    {
+      this.playerDesc = "No description available";
+    }
+    if(!this.playerImage)
+    {
+      this.playerImage = "https://pbs.twimg.com/profile_images/798356695860723712/-NpEsPw9_400x400.jpg";
+    }
   }
 
 }
