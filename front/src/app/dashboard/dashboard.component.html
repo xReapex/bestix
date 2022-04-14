@@ -1,0 +1,21 @@
+<!--
+  Welcome to Tailwind Play, the official Tailwind CSS playground!
+
+  Everything here works just like it does when you're running Tailwind locally
+  with a real build pipeline. You can customize your config file, use features
+  like `@apply`, or even add third-party plugins.
+
+  Feel free to play with this example if you're just learning, or trash it and
+  start from scratch if you know enough to be dangerous. Have fun!
+-->
+<div class="min-h-screen">
+  <div class="container mx-auto px-4 py-2" *ngFor="let match of matchsList">
+
+    <div id="feed" class="max-w-lg bg-white border border-b-0 border-gray-200 mx-auto" >
+      <div id="post" class="flex border-b duration-200 cursor-pointer lg:pt-2 lg:pl-3">
+        <app-betting-card team1="{{ match['homeTeam']['name'] }}" team2="{{ match['awayTeam']['name'] }}" utcDate="{{ match['utcDate'] }}" status="{{ match['status'] }} "></app-betting-card>
+      </div>
+
+    </div>
+  </div>
+</div>
