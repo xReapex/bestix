@@ -9,12 +9,6 @@ export class PlayerServiceService {
 
     // Base URL for TheSportsDB
     private baseUrlTheSportsDB = "https://www.thesportsdb.com/api/v1/json/2/";
-
-    // Base URL for Back-End API
-    private baseUrlBackEndAPI= "https://api.themoviedb.org/3";
-
-    //https://www.thesportsdb.com/api/v1/json/2/searchplayers.php?p=Danny%20Welbeck
-
     public playerData:any = [];
 
   constructor(private http: HttpClient) { }

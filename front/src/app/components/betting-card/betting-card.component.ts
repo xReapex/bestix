@@ -16,7 +16,7 @@ export class BettingCardComponent implements OnInit {
   @Input()
   status: any | undefined;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
 
