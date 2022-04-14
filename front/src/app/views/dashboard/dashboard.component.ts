@@ -19,6 +19,11 @@ export class DashboardComponent implements OnInit {
       this.matchsList = this.matchsList[0]['matches']
       console.log(this.matchsList)
     })
+
+    /*this.appService.getPredictions().subscribe(matchs => {
+      this.matchsList.push(matchs);
+      console.log(this.matchsList)
+    })*/
   }
 
 }
