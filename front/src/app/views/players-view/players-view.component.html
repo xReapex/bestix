@@ -1,3 +1,29 @@
-<p>players-view works!</p>
+<div class="bg-gradient-to-tr from-blue-800 to-purple-700 min-h-screen overflow-auto">
+    
+    <form class="w-full max-w-sm">
+        <div class="flex items-center border-b border-teal-500 py-2">
+          <button
+            class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+            type="button" (click)="searchPlayersByName()">
+            Search for player by name
+          </button>
+    
+          <input
+            class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+            [formControl]="searchPlayersByNameInput"
+            [(ngModel)]="currentPlayerNameToSearch"
+            placeholder="Type player name"
+            type="text">
+        </div>
+      </form>
 
-<app-player-card playerName="{{playerData[0].players[0].strPlayer}}" playerDesc="{{playerData[0].players[0].strDescriptionEN}}" playerImage="{{playerData[0].players[0].strThumb}}"></app-player-card>
+      <br>
+      <br>
+      
+      <div class="flex flex-wrap -m-4">
+      <div *ngFor="let player of playersListData['0']['player']">
+            <app-player-card playerName = "{{ player.strPlayer }}" playerDesc = "{{ player.strDescriptionEN }}" playerImage = "{{ player.strThumb }}"></app-player-card>
+      </div>
+    </div>
+
+</div>
