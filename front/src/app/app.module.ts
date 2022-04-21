@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { PlayersViewComponent } from './views/players-view/players-view.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ApiCallTestComponent,
     PlayerCardComponent,
     PlayersViewComponent,
-    SidebarComponent
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
