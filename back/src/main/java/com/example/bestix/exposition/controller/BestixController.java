@@ -1,7 +1,9 @@
 package com.example.bestix.exposition.controller;
 
 import com.example.bestix.domain.service.PlayerService;
+import com.example.bestix.infrastructure.Entity.FavoritePlayer;
 import com.example.bestix.infrastructure.Entity.Player;
+import com.sun.tools.jconsole.JConsoleContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -66,6 +68,29 @@ public class BestixController {
             this.stringList = stringList;
         }
     }
+
+    /*Favoris*/
+    @GetMapping(value="/getFavorites/userId={userId}")
+    public List<Integer> getFavoritesByUserId(@PathVariable("userId") int userId){
+        System.out.println("Controller : " + userId);
+        List<Integer> favoritesList = playerService.getFavoritesByUserId(userId);
+        System.out.println("Controller favs : " + favoritesList);
+        return favoritesList;
+    }
+
+    @PostMapping(value="/saveFavoritePlayer/playerId={playerId}&userId={userId}")
+    public ResponseEntity saveFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId")int playerId){
+        playerService.saveFavoriteByUserId(playerId, userId);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping(value="/deleteFavoritePlayer/playerId={playerId}&userId={userId}")
+    public ResponseEntity deleteFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId") int playerId){
+            playerService.deleteFavoriteByIds(playerId, userId);
+            return ResponseEntity.ok().build();
+    }
+
+    /*Players*/
 
     @GetMapping(value = "/getAllSportsList")
     private String getHelloClient() {

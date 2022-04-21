@@ -1,6 +1,5 @@
 package com.example.bestix.infrastructure.Repository;
 
-import com.example.bestix.infrastructure.Entity.Player;
 import com.example.bestix.infrastructure.Entity.FavoritePlayer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -12,11 +11,13 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public interface PlayerRepository extends JpaRepository<Player, Integer> {
+public interface FavoritesRepository extends JpaRepository<FavoritePlayer, Integer> {
+
+    @Query("select p.playerId from FavoritePlayer p where p.userId = :userIdentifier")
+    List<Integer> getFavoritesByUserId(@Param("userIdentifier") int userId);
 
     @Transactional
     @Modifying
-    @Query("update Player p set p.playerName = :name where p.id = :id")
-    void setPlayerName(@Param("name") String name, @Param("id") int id);
-
+    @Query("delete from FavoritePlayer p where p.userId = :userIdentifier and p.playerId = :playerIdentifier")
+    void deleteByIds(@Param("playerIdentifier") int playerId, @Param("userIdentifier") int userId);
 }
