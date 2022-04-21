@@ -70,7 +70,7 @@ public class BestixController {
     }
 
     /*Favoris*/
-    @GetMapping(value="/getFavorites/userId={userId}")
+    @GetMapping(value="/Favorites/userId={userId}")
     public List<Integer> getFavoritesByUserId(@PathVariable("userId") int userId){
         System.out.println("Controller : " + userId);
         List<Integer> favoritesList = playerService.getFavoritesByUserId(userId);
@@ -78,13 +78,13 @@ public class BestixController {
         return favoritesList;
     }
 
-    @PostMapping(value="/saveFavoritePlayer/playerId={playerId}&userId={userId}")
+    @PostMapping(value="/Favorites/playerId={playerId}&userId={userId}")
     public ResponseEntity saveFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId")int playerId){
         playerService.saveFavoriteByUserId(playerId, userId);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping(value="/deleteFavoritePlayer/playerId={playerId}&userId={userId}")
+    @DeleteMapping(value="/Favorites/playerId={playerId}&userId={userId}")
     public ResponseEntity deleteFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId") int playerId){
             playerService.deleteFavoriteByIds(playerId, userId);
             return ResponseEntity.ok().build();
