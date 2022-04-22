@@ -12,6 +12,8 @@ import { ApiCallTestComponent } from './components/api-call-test/api-call-test.c
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { PlayersViewComponent } from './views/players-view/players-view.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PlayersViewComponent } from './views/players-view/players-view.componen
     BettingCardComponent,
     ApiCallTestComponent,
     PlayerCardComponent,
-    PlayersViewComponent
+    PlayersViewComponent,
+    SidebarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
