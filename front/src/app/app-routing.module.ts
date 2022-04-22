@@ -1,3 +1,4 @@
+import { FavoritesComponent } from './views/favorites/favorites.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -20,6 +21,10 @@ const routes: Routes = [];
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'favorite',
+        component: FavoritesComponent
       },
       {
         path: 'tests',
