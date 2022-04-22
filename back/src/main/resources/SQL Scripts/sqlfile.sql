@@ -71,23 +71,6 @@ ALTER TABLE public.player OWNER TO postgres;
 -- Data for Name: players; Type: TABLE DATA; Schema: projet; Owner: postgres
 --
 
-COPY projet.players (id, "playerName") FROM stdin;
-1	john
-\.
-
-
---
--- Data for Name: player; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.player (id, player_name) FROM stdin;
-1	Will
-2	Smith
-3	Slaps
-4	Rock
-5	Omelette du fromage
-\.
-
 
 --
 -- Name: hibernate_sequence; Type: SEQUENCE SET; Schema: public; Owner: postgres
