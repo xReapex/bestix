@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { response } from 'express';
 
 import { PlayerServiceService } from 'src/app/services/player-service.service';
 
@@ -22,14 +21,13 @@ export class PlayersViewComponent implements OnInit {
   constructor(private playerService: PlayerServiceService) { }
 
   ngOnInit(): void {
-        
-    this.playerService.getPlayerDataById("34145934").subscribe(response => 
+
+    this.playerService.getPlayerDataById("34145934").subscribe(response =>
       {
         this.playerData.push(response);
       })
 
   }
-
 
   searchPlayersByName()
   {

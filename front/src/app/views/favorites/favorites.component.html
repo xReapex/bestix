@@ -1,1 +1,292 @@
-<p>favorites works!</p>
+<div class="bg-white">
+  <div>
+
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative z-10 flex items-baseline justify-between pt-24 pb-6 ">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">Vos favoris</h1>
+
+        <div class="flex items-center">
+          <div class="relative inline-block text-left">
+
+            <!--
+              Dropdown menu, show/hide based on menu state.
+
+              Entering: "transition ease-out duration-100"
+                From: "transform opacity-0 scale-95"
+                To: "transform opacity-100 scale-100"
+              Leaving: "transition ease-in duration-75"
+                From: "transform opacity-100 scale-100"
+                To: "transform opacity-0 scale-95"
+            -->
+
+          </div>
+
+          <button type="button" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden">
+            <span class="sr-only">Filters</span>
+            <!-- Heroicon name: solid/filter -->
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <section aria-labelledby="products-heading" class="pt-6 pb-24">
+        <h2 id="products-heading" class="sr-only">Products</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
+          <!-- Filters -->
+          <form class="hidden lg:block">
+            <h3 class="sr-only">Categories</h3>
+
+            <form class="w-full max-w-sm ml-80px pt-10">
+              <p class="text-2xl font-semibold align-top">Rechercher un joueur</p>
+                <div class="flex items-center border-b border-teal-500 py-2">
+                  <button
+                    class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
+                    type="button" (click)="searchPlayersByName()">
+                    Search for player by name
+                  </button>
+
+                  <input
+                    class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    [formControl]="searchPlayersByNameInput"
+                    [(ngModel)]="currentPlayerNameToSearch"
+                    placeholder="Type player name"
+                    type="text">
+                </div>
+              </form>
+
+            <div class="py-6">
+              <h3 class="-my-3 flow-root">
+                <!-- Expand/collapse section button -->
+                <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-0" aria-expanded="false">
+                  <span class="font-medium text-gray-900">  </span>
+                  <span class="ml-6 flex items-center">
+
+                  </span>
+                </button>
+              </h3>
+              <!-- Filter section, show/hide based on section state. -->
+              <div class="pt-6" id="filter-section-0">
+                <div class="space-y-4">
+                  <div class="flex items-center">
+                    <div id="filter-color-0" name="color[]" value="white" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-color-0" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-color-1" name="color[]" value="beige" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-color-1" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-color-2" name="color[]" value="blue" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-color-2" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-color-3" name="color[]" value="brown" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-color-3" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-color-4" name="color[]" value="green" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-color-4" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-color-5" name="color[]" value="purple" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-color-5" class="ml-3 text-sm text-gray-600"> </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="py-6">
+              <h3 class="-my-3 flow-root">
+                <!-- Expand/collapse section button -->
+                <button type="button" class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500" aria-controls="filter-section-1" aria-expanded="false">
+
+                </button>
+              </h3>
+              <!-- Filter section, show/hide based on section state. -->
+              <div class="pt-6" id="filter-section-1">
+                <div class="space-y-4">
+                  <div class="flex items-center">
+                    <div id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-category-0" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-category-1" name="category[]" value="sale" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-category-1" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-category-2" name="category[]" value="travel" type="checkbox" checked class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-category-2" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-category-3" name="category[]" value="organization" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-category-3" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+
+                  <div class="flex items-center">
+                    <div id="filter-category-4" name="category[]" value="accessories" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
+                    <label for="filter-category-4" class="ml-3 text-sm text-gray-600">  </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- Product grid -->
+          <div class="lg:col-span-3">
+            <!-- Replace with your content -->
+            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full">
+
+              <main class="w-full overflow-y-auto">
+                <div class="px-10 grid grid-cols-3 gap-3">
+                  <div
+                    class="col-span-3 sm:col-span-3 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                  >
+                    <div class="bg-white rounded-lg mt-5">
+                      <img
+                        src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+                        class="h-40 rounded-md"
+                        alt=""
+                      />
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg -mt-4 w-64">
+                      <div class="py-5 px-5">
+                        <span class="font-bold text-gray-800 text-lg">Geek Pizza</span>
+                        <div class="flex items-center justify-between">
+                          <div class="text-sm text-gray-600 font-light">
+                            Size : Regular
+                          </div>
+                          <div class="text-2xl text-red-600 font-bold">
+                            $ 8.00
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end cols -->
+
+                  <div
+                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                  >
+                    <div class="bg-white rounded-lg mt-5">
+                      <img
+                        src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+                        class="h-40 rounded-md"
+                        alt=""
+                      />
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg -mt-4 w-64">
+                      <div class="py-5 px-5">
+                        <span class="font-bold text-gray-800 text-lg">Geek Pizza</span>
+                        <div class="flex items-center justify-between">
+                          <div class="text-sm text-gray-600 font-light">
+                            Size : Regular
+                          </div>
+                          <div class="text-2xl text-red-600 font-bold">
+                            $ 8.00
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end cols -->
+
+                  <div
+                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                  >
+                    <div class="bg-white rounded-lg mt-5">
+                      <img
+                        src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+                        class="h-40 rounded-md"
+                        alt=""
+                      />
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg -mt-4 w-64">
+                      <div class="py-5 px-5">
+                        <span class="font-bold text-gray-800 text-lg">Geek Pizza</span>
+                        <div class="flex items-center justify-between">
+                          <div class="text-sm text-gray-600 font-light">
+                            Size : Regular
+                          </div>
+                          <div class="text-2xl text-red-600 font-bold">
+                            $ 8.00
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end cols -->
+
+                  <div
+                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                  >
+                    <div class="bg-white rounded-lg mt-5">
+                      <img
+                        src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+                        class="h-40 rounded-md"
+                        alt=""
+                      />
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg -mt-4 w-64">
+                      <div class="py-5 px-5">
+                        <span class="font-bold text-gray-800 text-lg">Geek Pizza</span>
+                        <div class="flex items-center justify-between">
+                          <div class="text-sm text-gray-600 font-light">
+                            Size : Regular
+                          </div>
+                          <div class="text-2xl text-red-600 font-bold">
+                            $ 8.00
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end cols -->
+
+                  <div
+                    class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center"
+                  >
+                    <div class="bg-white rounded-lg mt-5">
+                      <img
+                        src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
+                        class="h-40 rounded-md"
+                        alt=""
+                      />
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg -mt-4 w-64">
+                      <div class="py-5 px-5">
+                        <span class="font-bold text-gray-800 text-lg">Geek Pizza</span>
+                        <div class="flex items-center justify-between">
+                          <div class="text-sm text-gray-600 font-light">
+                            Size : Regular
+                          </div>
+                          <div class="text-2xl text-red-600 font-bold">
+                            $ 8.00
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- end cols -->
+                </div>
+              </main>
+
+            </div>
+            <!-- /End replace -->
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
