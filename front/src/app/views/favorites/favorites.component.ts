@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { PlayerServiceService } from 'src/app/services/player-service.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class FavoritesComponent implements OnInit {
     /** Current value of the input box */
     currentPlayerNameToSearch = '';
 
-    searchPlayersByNameInput = new ReactiveFormsModule();
+    searchPlayersByNameInput = new FormControl();
 
   constructor(private playerService: PlayerServiceService) { }
 

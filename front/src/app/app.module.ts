@@ -14,6 +14,7 @@ import { PlayerCardComponent } from './components/player-card/player-card.compon
 import { PlayersViewComponent } from './views/players-view/players-view.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FavoritesComponent } from './views/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeaderComponent } from './components/header/header.component';
     PlayerCardComponent,
     PlayersViewComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule,
