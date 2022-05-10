@@ -13,7 +13,8 @@ export class PlayerCardComponent implements OnInit {
   playerDesc: string | undefined;
   @Input()
   playerImage: string | undefined;
-
+  @Input()
+  playerTeam: string | undefined;
 
   constructor() { }
 
