@@ -1,6 +1,8 @@
 package com.example.bestix.exposition.controller;
 
+import com.example.bestix.domain.service.BetService;
 import com.example.bestix.domain.service.PlayerService;
+import com.example.bestix.infrastructure.Entity.BetEntity;
 import com.example.bestix.infrastructure.Entity.FavoritePlayer;
 import com.example.bestix.infrastructure.Entity.Player;
 import com.sun.tools.jconsole.JConsoleContext;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,10 +24,13 @@ import java.util.Optional;
 public class BestixController {
 
     PlayerService playerService;
+    BetService betService;
 
     @Autowired
-    public BestixController(PlayerService playerService) {
+    public BestixController(PlayerService playerService, BetService betService) {
+
         this.playerService = playerService;
+        this.betService =  betService;
     }
 
 
@@ -67,6 +73,27 @@ public class BestixController {
             this.date = date;
             this.stringList = stringList;
         }
+    }
+/* Paris */
+    @GetMapping(value = "/matchs/bet/userId={userId}")
+    public List<BetEntity> getBetsByUserId(@PathVariable("userId") int userId)
+    {
+        System.out.println("Bets - UserId : " + userId);
+        List<BetEntity> betList = betService.getBetsByUserId(0);
+        System.out.println("Bets list : " + betList);
+        return betList;
+    }
+
+
+    @PostMapping(value="/matchs/bet/matchId={matchId}&teamId={teamId}&userId={userId}")
+    public ResponseEntity saveBetByUserId(@PathVariable("matchId")int matchId, @PathVariable("teamId")int teamId, @PathVariable("userId") int userId){
+        betService.saveBetsByUserId(matchId, teamId, userId);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value="/matchs/results/")
+    public void getDoneMatches(){
+
     }
 
     /*Favoris*/
