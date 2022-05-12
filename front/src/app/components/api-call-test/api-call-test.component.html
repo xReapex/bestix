@@ -59,7 +59,9 @@
 
         <input
           class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="getPlayerIdSportsDBInput" [(ngModel)]="currentPlayerIdSportsDB" placeholder="Type Player ID"
+          [formControl]="getPlayerIdSportsDBInput"
+          [(ngModel)]="currentPlayerIdSportsDB"
+          placeholder="Type Player ID"
           type="text">
         <p style="color:white;">ID Exemple : 34145937</p>
       </div>
@@ -92,7 +94,9 @@
 
         <input
           class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-          [formControl]="postPlayerNameInput" [(ngModel)]="currentPlayerName" placeholder="Type player name"
+          [formControl]="postPlayerNameInput"
+          [(ngModel)]="currentPlayerName"
+          placeholder="Type player name"
           type="text">
       </div>
     </form>

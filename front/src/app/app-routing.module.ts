@@ -31,10 +31,6 @@ const routes: Routes = [];
         component: ApiCallTestComponent
       },
       {
-        path: 'player-card-test',
-        component: PlayersViewComponent
-      },
-      {
         path: '**',
         component: LandingComponent
       }
