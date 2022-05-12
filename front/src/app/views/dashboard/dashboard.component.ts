@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
       console.log(this.matchsList)
     })
 
+
     /*this.appService.getPredictions().subscribe(matchs => {
       this.matchsList.push(matchs);
       console.log(this.matchsList)
