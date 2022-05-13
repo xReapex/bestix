@@ -19,4 +19,15 @@ export class ApiService {
       headers: this.headers,
     });
   }
+
+  public getFavoritesByUserId(id: string)
+  {
+
+    return this.http.get("http://localhost:8080/api/Favorites/userId=" + id);
+  }
+
+  public getPlayerInfos(id: string)
+  {
+    return this.http.get("http://localhost:8080/api/external/players/" + id);
+  }
 }
