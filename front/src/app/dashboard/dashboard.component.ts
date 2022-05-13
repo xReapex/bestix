@@ -8,17 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  public matchsList: any = [];
 
-  constructor(private appService: ApiService ) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.appService.getNextMatch().subscribe(matchs => {
-      this.matchsList.push(matchs);
-      this.matchsList = this.matchsList[0]['matches']
-      console.log(this.matchsList)
-    })
+    
   }
 
 }
