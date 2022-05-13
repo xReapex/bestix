@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ApiService } from 'src/app/services/api-service';
 
 @Component({
   selector: 'app-betting-card',
@@ -7,19 +9,42 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BettingCardComponent implements OnInit {
 
+  public matchsList: any = [];
+
   @Input()
-  team1: any | undefined;
+  match: any | undefined;
   @Input()
-  team2: any |undefined;
+  team1Name: any | undefined;
+  @Input()
+  team2Name: any |undefined;
   @Input()
   utcDate: any | undefined;
   @Input()
   status: any | undefined;
 
-  constructor() {}
+  constructor( private appService: ApiService ) {}
+
+  isSubmitted = false;
 
   ngOnInit(): void {
+    this.appService.getNextMatch().subscribe(matchs => {
+      this.matchsList.push(matchs);
+      this.matchsList = this.matchsList[0]['matches']
+      console.log(this.matchsList)
+    })
 
   }
+  submitForm(form: NgForm): any {
+    this.isSubmitted = true;
+    if (!form.valid) {
+      return false;
+    } else {
+      //alert(JSON.stringify( 'turl' + form.value))
+      const choix = JSON.stringify(form.value)
+      const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.match + `&selectedTeamId=`+ choix + `&userId=0`;
+      alert(url);
+    }
+  }
+  
 
 }

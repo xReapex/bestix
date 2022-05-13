@@ -1,30 +1,24 @@
-<div class="flex bg-gray-800 lg:ml-8">
+<!-- Form starts -->
+<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+  <!-- Gender -->
+  <div class="grid grid-cols-4 h-24">
+    <div>
+      <input id="team1" type="radio" class="custom-control-input" name="bet" value="team1">
 
-  <!-- Card 2 -->
-  <a href="#">
-
-    <div class="grid grid-cols-6 p-5 gap-y-2">
-
-      <!-- Description -->
-      <div class="col-span-5 md:col-span-4 ml-4">
-
-        <p class="text-fuchsia-900 font-bold text-xs"> {{ utcDate | date:'dd/MM/yyyy hh:mm z' }} </p>
-
-        <p class="text-gray-600 font-bold"> {{ team1 }} vs {{ team2 }} </p>
-
-        <p class="text-gray-400"> Blablabla </p>
-
-        <p class="text-gray-400"> Blablabla </p>
-
-      </div>
-
-      <!-- Price -->x
-      <div class="flex lg:ml-3 md:col-start-auto md:ml-0 md:justify-end">
-        <p class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit"> Score </p>
-      </div>
-
+      <label class="custom-control-label truncate" for="team1" *ngFor="let match of matchsList">{{match['awayTeam'].name}}</label>
+      
     </div>
+    <p class="text-gray-600 font-bold">VS</p>
+    <div>
+      <input id="team2" type="radio" class="custom-control-input" name="bet" value="team2" >
+      <label class="custom-control-label" for="team2" *ngFor="let match of matchsList">{{match['homeTeam'].name}} </label>
+    </div>
+    <div *ngIf="isSubmitted && myForm.invalid">
+      <p>Please select either value</p>
+    </div>
+    <!-- Submit Button -->
+    <button type="submit"
+      class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit">Submit</button>
 
-  </a>
-
-</div>
+  </div>
+</form><!-- Form ends -->
