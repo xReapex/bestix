@@ -7,4 +7,5 @@ import java.util.List;
 public interface BetService {
     List<BetEntity> getBetsByUserId(int userId);
     void saveBetsByUserId(int matchId, int equipeId, int userId);
+    List<Object> getBetsOnMatchesByUserId(int userId);
 }

@@ -3,44 +3,46 @@ package com.example.bestix.exposition.controller;
 import com.example.bestix.domain.service.BetService;
 import com.example.bestix.domain.service.PlayerService;
 import com.example.bestix.infrastructure.Entity.BetEntity;
-import com.example.bestix.infrastructure.Entity.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
-@RequestMapping(path = "/api/Favorites")
-public class favoritesController {
+@RequestMapping(path = "/api/bet")
+public class betsController {
 
-    PlayerService playerService;
+    BetService betService;
 
     @Autowired
-    public favoritesController(PlayerService playerService) {
-        this.playerService = playerService;
+    public betsController(BetService betService) {
+        this.betService =  betService;
     }
 
-    /*Favoris*/
-    @GetMapping(value="/userId={userId}")
-    public List<Integer> getFavoritesByUserId(@PathVariable("userId") int userId){
-        List<Integer> favoritesList = playerService.getFavoritesByUserId(userId);
-        return favoritesList;
+    /* Paris */
+    //Récupérer tous les paris effectués pour un user donné
+    @GetMapping(value = "/userId={userId}")
+    public List<BetEntity> getBetsByUserId(@PathVariable("userId") int userId)
+    {
+        System.out.println("Bets - UserId : " + userId);
+        List<BetEntity> betList = betService.getBetsByUserId(userId);
+        System.out.println("Bets list : " + betList);
+        return betList;
     }
 
-    @PostMapping(value="/playerId={playerId}&userId={userId}")
-    public ResponseEntity saveFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId")int playerId){
-        playerService.saveFavoriteByUserId(playerId, userId);
+    //Enregistre un paris pour un user donné
+    @PostMapping(value="/matchId={matchId}&teamId={teamId}&userId={userId}")
+    public ResponseEntity saveBetByUserId(@PathVariable("matchId")int matchId, @PathVariable("teamId")int teamId, @PathVariable("userId") int userId){
+        betService.saveBetsByUserId(matchId, teamId, userId);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping(value="/playerId={playerId}&userId={userId}")
-    public ResponseEntity deleteFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId") int playerId){
-            playerService.deleteFavoriteByIds(playerId, userId);
-            return ResponseEntity.ok().build();
+    //Récupérer les infos des matchs sur lesquels un joueur a parié
+    @GetMapping(value="/matchs/userId={userId}")
+    public List<Object> getDoneMatches(@PathVariable("userId")int userId){
+        return betService.getBetsOnMatchesByUserId(userId);
     }
 
 }

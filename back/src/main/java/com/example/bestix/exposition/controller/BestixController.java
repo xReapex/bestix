@@ -24,19 +24,15 @@ import java.util.Optional;
 public class BestixController {
 
     PlayerService playerService;
-    BetService betService;
 
     @Autowired
-    public BestixController(PlayerService playerService, BetService betService) {
-
+    public BestixController(PlayerService playerService) {
         this.playerService = playerService;
-        this.betService =  betService;
     }
-
 
     /*
     Tests calls
-     */
+
 
     @GetMapping("/hello")
     public String hello() {
@@ -73,70 +69,15 @@ public class BestixController {
             this.date = date;
             this.stringList = stringList;
         }
-    }
-/* Paris */
-    @GetMapping(value = "/matchs/bet/userId={userId}")
-    public List<BetEntity> getBetsByUserId(@PathVariable("userId") int userId)
-    {
-        System.out.println("Bets - UserId : " + userId);
-        List<BetEntity> betList = betService.getBetsByUserId(0);
-        System.out.println("Bets list : " + betList);
-        return betList;
-    }
+    }   */
 
 
-    @PostMapping(value="/matchs/bet/matchId={matchId}&teamId={teamId}&userId={userId}")
-    public ResponseEntity saveBetByUserId(@PathVariable("matchId")int matchId, @PathVariable("teamId")int teamId, @PathVariable("userId") int userId){
-        betService.saveBetsByUserId(matchId, teamId, userId);
-        return ResponseEntity.ok().build();
-    }
 
-    @GetMapping(value="/matchs/results/")
-    public void getDoneMatches(){
-
-    }
-
-    /*Favoris*/
-    @GetMapping(value="/Favorites/userId={userId}")
-    public List<Integer> getFavoritesByUserId(@PathVariable("userId") int userId){
-        System.out.println("Controller : " + userId);
-        List<Integer> favoritesList = playerService.getFavoritesByUserId(userId);
-        System.out.println("Controller favs : " + favoritesList);
-        return favoritesList;
-    }
-
-    @PostMapping(value="/Favorites/playerId={playerId}&userId={userId}")
-    public ResponseEntity saveFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId")int playerId){
-        playerService.saveFavoriteByUserId(playerId, userId);
-        return ResponseEntity.ok().build();
-    }
-
-    @DeleteMapping(value="/Favorites/playerId={playerId}&userId={userId}")
-    public ResponseEntity deleteFavoriteByUserId(@PathVariable("userId") int userId, @PathVariable("playerId") int playerId){
-            playerService.deleteFavoriteByIds(playerId, userId);
-            return ResponseEntity.ok().build();
-    }
-
-    /*Players*/
-
-    @GetMapping(value = "/getAllSportsList")
-    private String getHelloClient() {
-        String uri = "https://www.thesportsdb.com/api/v1/json/2/all_sports.php";
-        RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(uri, String.class);
-
-        return result;
-    }
 
 
 /*
 Players
  */
-
-    @GetMapping("/players/helloPlayer")
-    public String helloPlayer() {
-        System.out.println("helloPlayer called"); return "Hello World Player";
-    }
 
     @GetMapping("/players/all")
     public List<Player> getPlayers(){
