@@ -1,172 +1,84 @@
-<div class="bg-white">
-  <div>
 
+<div class="container py-24 mx-auto ml-72">
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="relative z-10 flex items-baseline justify-between pt-24 pb-6 ">
-        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">Vos favoris :</h1>
+  <div class="flex flex-wrap -mx-4 -mb-10 text-center">
 
-        <div class="flex items-center">
-          <button type="button" class="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden">
-            <span class="sr-only">Filters</span>
-            <!-- Heroicon name: solid/filter -->
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-              fill="currentColor">
-              <path fill-rule="evenodd"
-                d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z"
-                clip-rule="evenodd" />
-            </svg>
-          </button>
+    <div class="sm:w-1/2 mb-10 px-4">
+      <div class="rounded-lg h-96 overflow-hidden">
+        <div class="border-4 border-dashed border-gray-300 rounded-lg h-96">
+          <main class="w-full overflow-y-auto">
+            <div class="px-10 grid grid-cols-3 gap-3">
+              <div *ngFor="let searchedPlayer of playersListData['0']['player']">
+                <app-player-card playerName="{{ searchedPlayer.strPlayer }}" playerDesc="{{ searchedPlayer.strDescriptionEN }}"
+                  playerImage="{{ searchedPlayer.strThumb }}" playerTeam="{{ searchedPlayer.strTeam }}"></app-player-card>
+              </div>
+            </div>
+          </main>
         </div>
       </div>
 
-      <section aria-labelledby="products-heading" class="pt-6 pb-24">
-        <h2 id="products-heading" class="sr-only">Products</h2>
-
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
-          <!-- Filters -->
-          <form class="hidden lg:block">
-            <h3 class="sr-only">Categories</h3>
-
-            <!-- Input -->
-
-            <form class="w-full max-w-sm ml-80px pt-10">
-              <p class="text-2xl font-semibold align-top">Rechercher un joueur :</p>
-              <div class="flex items-center border-b border-teal-500 py-2">
-                <button
-                  class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 py-1 px-2 rounded"
-                  type="button" (click)="searchPlayersByName()">
-                  Rechercher
-                </button>
-
-                <input
-                  class="appearance-none bg-transparent border-none mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  [formControl]="searchPlayersByNameInput" [(ngModel)]="currentPlayerNameToSearch"
-                  placeholder="Nom du joueur" type="text">
+      <form class="mt-5">
+        <div class="max-w-2xl mx-auto">
+          <form>
+            <label for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+            <div class="relative">
+              <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
               </div>
-            </form>
-
-
-            <div class="py-6">
-              <h3 class="-my-3 flow-root">
-                <!-- Expand/collapse section button -->
-                <button type="button"
-                  class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500"
-                  aria-controls="filter-section-0" aria-expanded="false">
-                  <span class="font-medium text-gray-900"> </span>
-                  <span class="ml-6 flex items-center">
-
-                  </span>
-                </button>
-              </h3>
-              <!-- Filter section, show/hide based on section state. -->
-              <div class="pt-6" id="filter-section-0">
-                <div class="space-y-4">
-                  <div class="flex items-center">
-                    <div id="filter-color-0" name="color[]" value="white" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-color-0" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-color-1" name="color[]" value="beige" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-color-1" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-color-2" name="color[]" value="blue" type="checkbox" checked
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-color-2" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-color-3" name="color[]" value="brown" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-color-3" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-color-4" name="color[]" value="green" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-color-4" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-color-5" name="color[]" value="purple" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-color-5" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="py-6">
-              <h3 class="-my-3 flow-root">
-                <!-- Expand/collapse section button -->
-                <button type="button"
-                  class="py-3 bg-white w-full flex items-center justify-between text-sm text-gray-400 hover:text-gray-500"
-                  aria-controls="filter-section-1" aria-expanded="false">
-
-                </button>
-              </h3>
-              <!-- Filter section, show/hide based on section state. -->
-              <div class="pt-6" id="filter-section-1">
-                <div class="space-y-4">
-                  <div class="flex items-center">
-                    <div id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-category-0" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-category-1" name="category[]" value="sale" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-category-1" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-category-2" name="category[]" value="travel" type="checkbox" checked
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-category-2" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-category-3" name="category[]" value="organization" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-category-3" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-
-                  <div class="flex items-center">
-                    <div id="filter-category-4" name="category[]" value="accessories" type="checkbox"
-                      class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"></div>
-                    <label for="filter-category-4" class="ml-3 text-sm text-gray-600"> </label>
-                  </div>
-                </div>
-              </div>
+              <input type="search" id="default-search" [formControl]="searchPlayersByNameInput" [(ngModel)]="currentPlayerNameToSearch" placeholder="Nom du joueur"
+                class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Recherchez un joueur par son nom/prénom..." required>
+              <button type="submit" (click)="searchPlayersByName()"
+                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
             </div>
           </form>
-
-          <!-- Product grid -->
-          <div class="lg:col-span-3">
-            <!-- Replace with your content -->
-            <div class="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full">
-
-              <main class="w-full overflow-y-auto">
-                <div class="px-10 grid grid-cols-3 gap-3">
-                  <div *ngFor="let player of playersListData['0']['player']">
-                    <app-player-card playerName="{{ player.strPlayer }}" playerDesc="{{ player.strDescriptionEN }}"
-                      playerImage="{{ player.strThumb }}" playerTeam="{{ player.strTeam }}"></app-player-card>
-                  </div>
-                </div>
-
-              </main>
-
-            </div>
-            <!-- /End replace -->
-          </div>
         </div>
-      </section>
-    </main>
-  </div>
+      </form>
+
+    </div>
+
+    <!-- Player in favorite -->
+    <div class="sm:w-1/2 mb-10 px-4">
+      <div class="rounded-lg h-96 overflow-hidden">
+        <div class="border-4 border-dashed border-gray-300 rounded-lg h-96 overflow-auto">
+          <main class="w-full overflow-y-auto">
+            <div class="px-10 grid grid-cols-3 gap-3">
+              <div *ngFor="let player of favoritesList">
+                <app-player-card playerName="{{ player['players'][0].strPlayer }}" playerDesc="{{ player['players'][0].strDescriptionEN }}"
+                  playerImage="{{ player['players'][0].strThumb }}" playerTeam="{{ player['players'][0].strTeam }}"></app-player-card>
+              </div>
+            </div>
+            
+          </main>
+        </div>
+      </div>
+
+      <form class="mt-5">
+        <div class="max-w-2xl mx-auto">
+          <form>
+            <label for="default-search"
+              class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
+            <div class="relative">
+              <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+              <input type="search" id="default-search" [formControl]="searchPlayersByNameInput" [(ngModel)]="currentPlayerNameToSearch" placeholder="Nom du joueur"
+                class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Recherchez un joueur dans vos favoris..." required>
+              <button type="submit" (click)="searchFavoriteByName(currentPlayerNameToSearch)"
+                class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+            </div>
+          </form>
+        </div>
+      </form>
+    </div>
 </div>
