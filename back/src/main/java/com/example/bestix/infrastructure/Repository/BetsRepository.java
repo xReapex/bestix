@@ -17,4 +17,6 @@ public interface BetsRepository extends JpaRepository<BetEntity, Integer> {
     @Query("select p from BetEntity p where p.idUser = :userIdentifier")
     List<BetEntity> getBetsByUserId(@Param("userIdentifier") int idUser);
 
+    @Query("select p.idMatch from BetEntity p where p.idUser = :userIdentifier")
+    List<Integer> getMatchesIdByUserId(@Param("userIdentifier") int userId);
 }
