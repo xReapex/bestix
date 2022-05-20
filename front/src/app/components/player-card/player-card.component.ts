@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./player-card.component.css']
 })
 export class PlayerCardComponent implements OnInit {
-  
+
   @Input()
   playerName: string | undefined;
   @Input()
@@ -19,8 +19,6 @@ export class PlayerCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.playerDesc);
-
     if(!this.playerDesc)
     {
       this.playerDesc = "No description available";
