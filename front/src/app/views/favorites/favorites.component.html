@@ -5,9 +5,9 @@
 
     <div class="sm:w-1/2 mb-10 px-4">
       <div class="rounded-lg h-96 overflow-hidden">
-        <div class="border-4 border-dashed border-gray-300 rounded-lg h-96">
-          <main class="w-full overflow-y-auto">
-            <div class="px-10 grid grid-cols-3 gap-3">
+        <div class="border-4 border-dashed border-gray-300 rounded-lg h-96 overflow-y-scroll overflow-x-hidden">
+          <main class="w-full">
+            <div class="px-1 grid grid-cols-3 gap-3">
               <div *ngFor="let searchedPlayer of playersListData['0']['player']">
                 <app-player-card playerName="{{ searchedPlayer.strPlayer }}" playerDesc="{{ searchedPlayer.strDescriptionEN }}"
                   playerImage="{{ searchedPlayer.strThumb }}" playerTeam="{{ searchedPlayer.strTeam }}"></app-player-card>
@@ -53,7 +53,7 @@
                   playerImage="{{ player['players'][0].strThumb }}" playerTeam="{{ player['players'][0].strTeam }}"></app-player-card>
               </div>
             </div>
-            
+
           </main>
         </div>
       </div>
