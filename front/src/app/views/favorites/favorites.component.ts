@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { PlayerServiceService } from 'src/app/services/player-service.service';
 import { ApiService } from 'src/app/services/api-service';
 
@@ -65,4 +65,28 @@ export class FavoritesComponent implements OnInit {
       }
     }
   }
+
+  //TO FIX
+  /*moveCardToFavorites(id: string)
+  {
+    console.log(this.favoritesList);
+
+    for(let i = 0; i < this.playersListData[0]['player'].length; i++)
+    {
+      if(this.playersListData[0]['player'][i].idPlayer == id)
+      {
+        this.test.push(this.playersListData[0]['player'][i]);
+      }
+    }
+
+
+          this.favoritesList.push(
+            { players:
+              this.test
+            }
+            );
+
+
+      console.log(this.favoritesList);
+  }*/
 }
