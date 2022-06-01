@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.Optional;
 
-
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/api/Favorites")
 public class favoritesController {

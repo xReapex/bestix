@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api-service';
+import { FavoritesComponent } from 'src/app/views/favorites/favorites.component';
 
 @Component({
   selector: 'app-player-card',
@@ -6,7 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./player-card.component.css']
 })
 export class PlayerCardComponent implements OnInit {
-  
+
+  @Input()
+  alreadyInFavorites: string | undefined;
+  @Input()
+  playerId: string | undefined;
   @Input()
   playerName: string | undefined;
   @Input()
@@ -16,11 +22,9 @@ export class PlayerCardComponent implements OnInit {
   @Input()
   playerTeam: string | undefined;
 
-  constructor() { }
+  constructor(private apiService: ApiService, private favoritesComponent: FavoritesComponent) { }
 
   ngOnInit(): void {
-    console.log(this.playerDesc);
-
     if(!this.playerDesc)
     {
       this.playerDesc = "No description available";
@@ -29,6 +33,27 @@ export class PlayerCardComponent implements OnInit {
     {
       this.playerImage = "https://pbs.twimg.com/profile_images/798356695860723712/-NpEsPw9_400x400.jpg";
     }
+  }
+
+  addClicked(event: any)
+  {
+    let playerId = event.target.id;
+     this.apiService.savePlayerAsFavorite(playerId).subscribe(response =>
+      {
+        this.favoritesComponent.getFavoritesByUserId("0");
+      })
+
+  }
+
+   //TO FIX
+  removeClicked(event: any)
+  {
+    let playerId = event.target.id;
+    this.apiService.deleteFavorite(playerId).subscribe(response =>
+      {
+        this.favoritesComponent.favoritesList = this.favoritesComponent.favoritesList.filter((item: any) => item['players'][0].idPlayer != playerId)
+      })
+
   }
 
 }
