@@ -34,7 +34,6 @@ export class ApiService {
   public savePlayerAsFavorite(id: string)
   {
     let defaultUserIdForTests = 0;
-    console.log("POST CALLED");
 
     return this.http.post("http://localhost:8080/api/Favorites/playerId=" + id + "&userId=" + defaultUserIdForTests, null);
   }
@@ -42,8 +41,6 @@ export class ApiService {
   public deleteFavorite(id: string)
   {
     let defaultUserIdForTests = 0;
-    console.log("DELETE CALLED");
-
     return this.http.delete("http://localhost:8080/api/Favorites/playerId=" + id + "&userId=" + defaultUserIdForTests);
   }
 }

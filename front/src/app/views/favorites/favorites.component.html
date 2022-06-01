@@ -10,7 +10,7 @@
             <div class="px-1 grid grid-cols-3 gap-3">
               <div *ngFor="let searchedPlayer of playersListData[0]">
                 <app-player-card playerName="{{ searchedPlayer.strPlayer }}" playerDesc="{{ searchedPlayer.strDescriptionEN }}"
-                  playerImage="{{ searchedPlayer.strThumb }}" playerTeam="{{ searchedPlayer.strTeam }}"></app-player-card>
+                  playerImage="{{ searchedPlayer.strThumb }}" playerTeam="{{ searchedPlayer.strTeam }}" playerId="{{ searchedPlayer.idPlayer }}"></app-player-card>
               </div>
             </div>
           </main>

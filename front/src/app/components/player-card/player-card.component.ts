@@ -35,21 +35,21 @@ export class PlayerCardComponent implements OnInit {
     }
   }
 
-  /*addClicked(event: any)
+  addClicked(event: any)
   {
     let playerId = event.target.id;
      this.apiService.savePlayerAsFavorite(playerId).subscribe(response =>
       {
       } )
-      this.favoritesComponent.moveCardToFavorites(playerId);
+      //this.favoritesComponent.moveCardToFavorites(playerId);
 
-  }*/
+  }
 
    //TO FIX
   removeClicked(event: any)
   {
     let playerId = event.target.id;
-    alert("the button for player : " + playerId + " has been clicked");
+    //alert("the button for player : " + playerId + " has been clicked");
     this.apiService.deleteFavorite(playerId).subscribe(response =>
       {
         //console.log(response);
