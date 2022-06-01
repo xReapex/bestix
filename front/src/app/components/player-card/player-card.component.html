@@ -16,7 +16,7 @@
 
 
   <ng-template #showRemoveButton>
-    <button id="{{ playerId }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-700 rounded">
+    <button id="{{ playerId }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-700 rounded" (click)="removeClicked($event)">
       X
     </button>
   </ng-template>

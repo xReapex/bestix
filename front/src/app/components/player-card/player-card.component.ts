@@ -43,7 +43,7 @@ export class PlayerCardComponent implements OnInit {
       } )
       this.favoritesComponent.moveCardToFavorites(playerId);
 
-  }
+  }*/
 
    //TO FIX
   removeClicked(event: any)
@@ -55,6 +55,6 @@ export class PlayerCardComponent implements OnInit {
         //console.log(response);
       } )
 
-  }*/
+  }
 
 }
