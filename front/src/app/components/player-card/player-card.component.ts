@@ -53,7 +53,7 @@ export class PlayerCardComponent implements OnInit {
     this.apiService.deleteFavorite(playerId).subscribe(response =>
       {
         //console.log(response);
-      } )
+      })
 
   }
 
