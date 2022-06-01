@@ -40,6 +40,7 @@ export class PlayerCardComponent implements OnInit {
     let playerId = event.target.id;
      this.apiService.savePlayerAsFavorite(playerId).subscribe(response =>
       {
+        this.favoritesComponent.getFavoritesByUserId("0");
       })
 
   }
