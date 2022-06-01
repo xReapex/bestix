@@ -65,28 +65,4 @@ export class FavoritesComponent implements OnInit {
       }
     }
   }
-
-  //TO FIX
-  /*moveCardToFavorites(id: string)
-  {
-    console.log(this.favoritesList);
-
-    for(let i = 0; i < this.playersListData[0]['player'].length; i++)
-    {
-      if(this.playersListData[0]['player'][i].idPlayer == id)
-      {
-        this.test.push(this.playersListData[0]['player'][i]);
-      }
-    }
-
-
-          this.favoritesList.push(
-            { players:
-              this.test
-            }
-            );
-
-
-      console.log(this.favoritesList);
-  }*/
 }

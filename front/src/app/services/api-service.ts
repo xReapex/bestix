@@ -22,7 +22,6 @@ export class ApiService {
 
   public getFavoritesByUserId(id: string)
   {
-
     return this.http.get("http://localhost:8080/api/Favorites/userId=" + id);
   }
 

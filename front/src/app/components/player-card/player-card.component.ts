@@ -40,8 +40,7 @@ export class PlayerCardComponent implements OnInit {
     let playerId = event.target.id;
      this.apiService.savePlayerAsFavorite(playerId).subscribe(response =>
       {
-      } )
-      //this.favoritesComponent.moveCardToFavorites(playerId);
+      })
 
   }
 
@@ -49,10 +48,9 @@ export class PlayerCardComponent implements OnInit {
   removeClicked(event: any)
   {
     let playerId = event.target.id;
-    //alert("the button for player : " + playerId + " has been clicked");
     this.apiService.deleteFavorite(playerId).subscribe(response =>
       {
-        //console.log(response);
+        this.favoritesComponent.favoritesList = this.favoritesComponent.favoritesList.filter((item: any) => item['players'][0].idPlayer != playerId)
       })
 
   }
