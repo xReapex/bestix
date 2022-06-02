@@ -8,6 +8,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { ApiCallTestComponent } from './components/api-call-test/api-call-test.component';
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { PlayersViewComponent } from './views/players-view/players-view.component';
+import { FormLeagueComponent } from './views/form-league/form-league.component';
 
 const routes: Routes = [];
 
@@ -17,6 +18,10 @@ const routes: Routes = [];
       {
         path: 'login',
         component: LoginComponent,
+      },
+      {
+        path: 'create',
+        component: FormLeagueComponent
       },
       {
         path: 'dashboard',
