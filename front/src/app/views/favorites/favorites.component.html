@@ -1,8 +1,7 @@
 
 <div class="container py-24 mx-auto ml-auto">
 
-  <div class="flex flex-wrap -mx-4 -mb-10 text-center">
-
+  <div class="flex flex-wrap -mx-4 -mb-10 text-center mt-36">
     <div class="sm:w-1/2 mb-10 px-4">
       <div class="rounded-lg h-96 overflow-hidden">
         <div class="border-4 border-dashed border-gray-300 rounded-lg h-96 overflow-y-scroll overflow-x-hidden">
@@ -31,7 +30,7 @@
                 </svg>
               </div>
               <input type="search" id="default-search" [formControl]="searchPlayersByNameInput" [(ngModel)]="currentPlayerNameToSearch" placeholder="Nom du joueur"
-                class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Recherchez un joueur par son nom/prénom..." required>
               <button type="submit" (click)="searchPlayersByName()"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
@@ -46,7 +45,7 @@
     <div class="sm:w-1/2 mb-10 px-4">
       <div class="rounded-lg h-96 overflow-hidden">
         <div class="border-4 border-dashed border-gray-300 rounded-lg h-96 overflow-auto">
-          <main class="w-full overflow-y-auto">
+          <main class="w-full overflow-x-hidden">
             <div class="px-10 grid grid-cols-3 gap-3">
               <div *ngFor="let player of favoritesList">
                 <app-player-card alreadyInFavorites="true" playerName="{{ player['players'][0].strPlayer }}" playerDesc="{{ player['players'][0].strDescriptionEN }}"
@@ -58,6 +57,7 @@
         </div>
       </div>
 
+      <!--
       <form class="mt-5">
         <div class="max-w-2xl mx-auto">
           <form>
@@ -77,8 +77,10 @@
               <button type="submit" (click)="searchFavoriteByName(currentPlayerNameToSearch)"
                 class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
             </div>
+            </div>
           </form>
         </div>
       </form>
     </div>
+  -->
 </div>

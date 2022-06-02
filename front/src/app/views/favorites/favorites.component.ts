@@ -16,8 +16,10 @@ export class FavoritesComponent implements OnInit {
 
   /** Current value of the input box */
   currentPlayerNameToSearch = '';
+  currentFavoritePlayerNameToSearch = '';
 
   searchPlayersByNameInput = new FormControl();
+  searchFavoritePlayersByNameInput = new FormControl();
 
   constructor(
     private playerService: PlayerServiceService,
