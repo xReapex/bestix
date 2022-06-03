@@ -4,6 +4,8 @@ import com.example.bestix.infrastructure.Entity.LeagueEntity;
 import com.example.bestix.infrastructure.Repository.LeagueRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LeagueServiceImplementation implements LeagueService {
 
@@ -20,5 +22,10 @@ public class LeagueServiceImplementation implements LeagueService {
         leagueEntity.setPassword(password);
 
         leagueRepository.save(leagueEntity);
+    }
+
+    @Override
+    public List<LeagueEntity> getLeaguesList() {
+        return leagueRepository.getLeaguesList();
     }
 }

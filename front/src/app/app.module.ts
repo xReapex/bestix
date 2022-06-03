@@ -16,6 +16,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FavoritesComponent } from './views/favorites/favorites.component';
 import { FormLeagueComponent } from './views/form-league/form-league.component';
+import { LeaguesViewComponent } from './views/leagues-view/leagues-view.component';
+import { LeagueCardComponent } from './components/league-card/league-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FormLeagueComponent } from './views/form-league/form-league.component';
     SidebarComponent,
     HeaderComponent,
     FavoritesComponent,
-    FormLeagueComponent
+    FormLeagueComponent,
+    LeaguesViewComponent,
+    LeagueCardComponent
   ],
   imports: [
     BrowserModule,

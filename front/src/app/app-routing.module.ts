@@ -9,6 +9,7 @@ import { ApiCallTestComponent } from './components/api-call-test/api-call-test.c
 import { PlayerCardComponent } from './components/player-card/player-card.component';
 import { PlayersViewComponent } from './views/players-view/players-view.component';
 import { FormLeagueComponent } from './views/form-league/form-league.component';
+import { LeaguesViewComponent } from './views/leagues-view/leagues-view.component';
 
 const routes: Routes = [];
 
@@ -34,6 +35,10 @@ const routes: Routes = [];
       {
         path: 'tests',
         component: ApiCallTestComponent
+      },
+      {
+        path: 'leagues',
+        component: LeaguesViewComponent
       },
       {
         path: '**',
