@@ -7,7 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormLeagueComponent implements OnInit {
 
-  constructor() { }
+  public leaguesAvailable: any = [];
+
+  constructor() {
+    this.leaguesAvailable = [
+      {
+        "code": "FL1",
+        "name": "Ligue 1"
+      },
+      {
+        "code": "FL2",
+        "name": "Ligue 2"
+      },
+      {
+        "code": "ABL",
+        "name": "Bundesliga"
+      },
+      {
+        "code": "BEL",
+        "name": "Coupe de Belgique"
+      },
+    ]
+  }
 
   ngOnInit(): void {
   }
