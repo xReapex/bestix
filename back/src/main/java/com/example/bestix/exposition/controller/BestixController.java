@@ -2,20 +2,22 @@ package com.example.bestix.exposition.controller;
 
 import com.example.bestix.domain.service.BetService;
 import com.example.bestix.domain.service.PlayerService;
+import com.example.bestix.domain.service.matchService;
+import com.example.bestix.domain.service.matchServiceImplementation;
 import com.example.bestix.infrastructure.Entity.BetEntity;
 import com.example.bestix.infrastructure.Entity.FavoritePlayer;
+import com.example.bestix.infrastructure.Entity.Match;
 import com.example.bestix.infrastructure.Entity.Player;
-import com.sun.tools.jconsole.JConsoleContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -85,6 +87,24 @@ Players
 
         return playerList;
     }
+    
+    @GetMapping("/matchs/scheduled")
+    public Map getScheduledMatchs(){  
+       HttpHeaders headers = new HttpHeaders();
+        headers.set("X-Auth-Token", "433cfd8cb8764e2a9c04286b3d59bdf1");
+        final HttpEntity<String> entity = new HttpEntity<String>(headers);
+         //Execute the method writing your HttpEntity to the request
+         String url = "http://api.football-data.org/v4/competitions/FL1/matches?status=SCHEDULED";
+         RestTemplate restTemplate = new RestTemplate();
+         ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);        
+         System.out.println(response.getBody());
+      
+
+        //String matchLists = restTemplate.getForObject(url, String.class);
+       // System.out.println(matchLists);
+        Map matchList = response.getBody();
+        return matchList;     
+    }
 
     @GetMapping("/players/{id}")
     public Optional<Player> getPlayerById(@PathVariable("id") int id){
@@ -139,5 +159,6 @@ Players
             return player;
              */
     }
+
 
 }
