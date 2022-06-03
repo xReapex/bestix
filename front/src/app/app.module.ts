@@ -15,6 +15,7 @@ import { PlayersViewComponent } from './views/players-view/players-view.componen
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FavoritesComponent } from './views/favorites/favorites.component';
+import { FormLeagueComponent } from './views/form-league/form-league.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FavoritesComponent } from './views/favorites/favorites.component';
     PlayersViewComponent,
     SidebarComponent,
     HeaderComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    FormLeagueComponent
   ],
   imports: [
     BrowserModule,
