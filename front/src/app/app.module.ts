@@ -16,6 +16,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FavoritesComponent } from './views/favorites/favorites.component';
 import { FormLeagueComponent } from './views/form-league/form-league.component';
+import { UserComponent } from './views/User/user.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormLeagueComponent } from './views/form-league/form-league.component';
     SidebarComponent,
     HeaderComponent,
     FavoritesComponent,
-    FormLeagueComponent
+    FormLeagueComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
