@@ -10,11 +10,15 @@ import { ApiService } from 'src/app/services/api-service';
 export class LeaguesViewComponent implements OnInit {
 
   public leaguesList: any = [];
+  public joinedLeagueList: any = [];
+  public canJoin: string | undefined;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getLeaguesList();
+    this.checkIfAlreadyInLeagues();
+    this.canJoin = "true"; // ou = undefined
   }
 
   getLeaguesList()
@@ -23,6 +27,17 @@ export class LeaguesViewComponent implements OnInit {
     {
       this.leaguesList.push(response);
       console.log(this.leaguesList);
+    });
+  }
+
+  checkIfAlreadyInLeagues()
+  {
+    let defaultUserId = '0';
+    this.apiService.checkJoinedLeaguesByUserId(defaultUserId).subscribe((response) =>
+    {
+      this.joinedLeagueList.push(response);
+      console.log("joinedLeagueList :");
+      console.log(this.joinedLeagueList);
     });
   }
 

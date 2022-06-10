@@ -5,11 +5,15 @@
     <div class="container py-24 mx-auto ml-auto">
 
         <div *ngFor="let league of leaguesList[0]">
-           <app-league-card leagueName = "{{ league.name }}" nbPlayers = "{{ league.nbPlayers }}"></app-league-card>
-         </div>
+          <div *ngIf="joinedLeagueList[0].indexOf(league.id) > -1;else other_content">
+            <app-league-card leagueId = "{{ league.id }}" leagueName = "{{ league.name }}" nbPlayers = "{{ league.nbPlayers }}"></app-league-card>
+          </div>
+          <ng-template #other_content>
+            <app-league-card leagueId = "{{ league.id }}" leagueName = "{{ league.name }}" nbPlayers = "{{ league.nbPlayers }}" showJoinInput="show"></app-league-card>
+          </ng-template>
+        </div>
+              
 
  </div>
 </div>
-
-
   

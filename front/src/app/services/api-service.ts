@@ -48,4 +48,19 @@ export class ApiService {
   {
     return this.http.get("http://localhost:8080/api/league/list");
   }
+
+  public requestLeagueAccess(leagueId: string, password: string, userId: string)
+  {
+    return this.http.post("http://localhost:8080/api/league/" + leagueId + "/" + password + "/" + userId, null);
+  }
+
+  public checkJoinedLeaguesByUserId(userId: string)
+   {
+     return this.http.get("http://localhost:8080/api/league/" + userId);
+   }
+
+  public getLeagueUserList(leagueId: string)
+  {
+    return this.http.get("http://localhost:8080/api/league/" + leagueId + "/users");
+  }
 }
