@@ -18,6 +18,12 @@ export class ApiService {
     return this.http.get("http://api.football-data.org/v2/competitions/FL1/matches?status=SCHEDULED", {
       headers: this.headers,
     });
+
+  }
+
+  public getMatchListFromBack(){
+
+    return this.http.get("http://localhost:8080/api/matchs/scheduled");
   }
 
   public getFavoritesByUserId(id: string)

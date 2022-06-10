@@ -10,9 +10,9 @@ import org.springframework.stereotype.Repository;
 import com.example.bestix.infrastructure.Entity.Match;
 
 @Repository
-public interface MatchRepository extends JpaRepository<Match, Integer>{
-    
+public interface MatchRepository extends JpaRepository<Match, Integer> {
 
-  //  @Query("")
-    //List<Match> getAllMatchs(@Param("firstTeamName") String firstTeamName, @Param("secondTeamName") String secondTeamName, @Param("date") String date, @Param("id") int id);
+  @Query("select m from Match m")
+  List<Match> getAllMatchs();
+
 }

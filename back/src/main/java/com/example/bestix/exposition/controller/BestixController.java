@@ -26,55 +26,13 @@ import java.util.Optional;
 public class BestixController {
 
     PlayerService playerService;
+    matchService match_Service;
 
     @Autowired
-    public BestixController(PlayerService playerService) {
+    public BestixController(PlayerService playerService, matchService match_Service) {
         this.playerService = playerService;
+        this.match_Service = match_Service;
     }
-
-    /*
-    Tests calls
-
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello World";
-    }
-
-    @GetMapping("/toto")
-    public TotoDTO getToto()
-    {
-        List<String> ls = new ArrayList<>();
-        ls.add("v1");
-        ls.add("v2");
-
-        return new TotoDTO("Hello", 1, new Date(), ls);
-    }
-
-    @PostMapping("/toto")
-    public ResponseEntity<TotoDTO> postBody(@RequestBody TotoDTO toto) {
-        TotoDTO newToto = new TotoDTO(toto.message, toto.value, toto.date, toto.stringList);
-        return ResponseEntity.ok(newToto);
-    }
-
-    public static class TotoDTO
-    {
-        public String message;
-        public int value;
-        public Date date;
-        public List<String> stringList;
-
-
-        public TotoDTO(String message, int value, Date date, List<String> stringList) {
-            this.message = message;
-            this.value = value;
-            this.date = date;
-            this.stringList = stringList;
-        }
-    }   */
-
-
-
 
 
 /*
@@ -89,21 +47,11 @@ Players
     }
     
     @GetMapping("/matchs/scheduled")
-    public Map getScheduledMatchs(){  
-       HttpHeaders headers = new HttpHeaders();
-        headers.set("X-Auth-Token", "433cfd8cb8764e2a9c04286b3d59bdf1");
-        final HttpEntity<String> entity = new HttpEntity<String>(headers);
-         //Execute the method writing your HttpEntity to the request
-         String url = "http://api.football-data.org/v4/competitions/FL1/matches?status=SCHEDULED";
-         RestTemplate restTemplate = new RestTemplate();
-         ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);        
-         System.out.println(response.getBody());
-      
-
-        //String matchLists = restTemplate.getForObject(url, String.class);
-       // System.out.println(matchLists);
-        Map matchList = response.getBody();
-        return matchList;     
+    public List<Match> getScheduledMatchs(){  
+       List<Match> matchs = match_Service.getAllMatchs();
+       
+       System.out.println(matchs);
+       return matchs;
     }
 
     @GetMapping("/players/{id}")

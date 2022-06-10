@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiService } from 'src/app/services/api-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,10 +14,11 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appService.getNextMatch().subscribe(matchs => {
+    this.appService.getMatchListFromBack().subscribe(matchs => {
       this.matchsList.push(matchs);
-      this.matchsList = this.matchsList[0]['matches']
       console.log(this.matchsList)
+
+      console.log(this.matchsList[0][4].id);
     })
 
     /*this.appService.getPredictions().subscribe(matchs => {

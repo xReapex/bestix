@@ -1,19 +1,28 @@
 package com.example.bestix.domain.service;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import com.example.bestix.infrastructure.Entity.Match;
+import com.example.bestix.infrastructure.Repository.MatchRepository;
 
 @Service
 public class matchServiceImplementation implements matchService {
 
-    @Override
-    public String getAllMatchs() {
-        String url = "http://api.football-data.org/v2/competitions/FL1/matches?status=SCHEDULED";
-        RestTemplate restTemplate = new RestTemplate();
+    MatchRepository matchRepository;
 
-        String matchLists = restTemplate.getForObject(url, String.class);
-        System.out.println(matchLists);
-        return matchLists;
+    public matchServiceImplementation(MatchRepository matchRepository)
+    {
+        this.matchRepository = matchRepository;
+    }
+
+    @Override
+    public List<Match> getAllMatchs() {
+
+        List<Match> matchList = matchRepository.getAllMatchs();
+        System.out.println("Retour: " + matchList);
+        return matchList;
     }
     
 }

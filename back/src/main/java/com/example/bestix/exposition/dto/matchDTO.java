@@ -1,50 +1,23 @@
-package com.example.bestix.infrastructure.Entity;
+package com.example.bestix.exposition.dto;
 
-import javax.persistence.*;
+import java.util.Map;
 
-@Entity
-@Table(name = "match")
-public class Match {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+public class matchDTO {
+
     private int id;
 
-    @Column(name = "firstTeamName")
+    private int firstTeamID;
     private String firstTeamName;
 
-    
-    @Column(name = "firstTeamID")
-    private int firstTeamID;
-    
-    @Column(name = "secondTeamID")
     private int secondTeamID;
-
-    @Column(name = "secondTeamName")
     private String secondTeamName;
     
-    @Column(name = "place")
     private String place;
-
-    @Column(name = "date")
     private String date;
 
-
-    public Match(int id, String firstTeamName, int firstTeamID, String secondTeamName, int secondTeamID, String place,
-            String date) {
-        this.id = id;
-        this.firstTeamName = firstTeamName;
-        this.firstTeamID = firstTeamID;
-        this.secondTeamName = secondTeamName;
-        this.secondTeamID = secondTeamID;
-        this.place = place;
-        this.date = date;
-    }
-
-    public Match() {
-
-    }
+    
 
     public int getId() {
         return id;
@@ -63,16 +36,14 @@ public class Match {
     }
 
     public String getFirstTeamName() {
-
         return firstTeamName;
     }
 
     public void setFirstTeamName(String firstTeamName) {
-
         this.firstTeamName = firstTeamName;
     }
 
-    public int getSecondTeamID() {
+    public int getSecondTeamID(){
         return secondTeamID;
     }
 
@@ -80,13 +51,15 @@ public class Match {
         this.secondTeamID = secondTeamID;
     }
 
-    public String getsecondTeamName() {
+    public String getSecondTeamName() {
+        return secondTeamName;
+    }
 
+    public String getsecondTeamName() {
         return secondTeamName;
     }
 
     public void setSecondTeamName(String secondTeamName) {
-
         this.secondTeamName = secondTeamName;
     }
 
@@ -103,8 +76,15 @@ public class Match {
     }
 
     public void setDate(String date) {
-
         this.date = date;
+    }
+
+    @SuppressWarnings("unchecked")
+    @JsonProperty("players")
+    private void unpackNested(Map<String, Object> matchs) {
+        this.id = (int) matchs.get("key");
+        this.firstTeamName = (String) matchs.get("homeTeam");
+        this.secondTeamName = (String) matchs.get("awayTeam");
     }
 
 }
