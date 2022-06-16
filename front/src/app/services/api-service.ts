@@ -24,6 +24,7 @@ export class ApiService {
   public getMatchListFromBack(){
 
     return this.http.get("http://localhost:8080/api/matchs/scheduled");
+
   }
 
   public getFavoritesByUserId(id: string)

@@ -27,11 +27,6 @@ export class BettingCardComponent implements OnInit {
   isSubmitted = false;
 
   ngOnInit(): void {
-    this.appService.getNextMatch().subscribe(matchs => {
-      this.matchsList.push(matchs);
-      this.matchsList = this.matchsList[0]['matches']
-      console.log(this.matchsList)
-    })
 
   }
   submitForm(form: NgForm): any {

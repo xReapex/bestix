@@ -9,22 +9,22 @@ import { ApiService } from 'src/app/services/api-service';
 export class DashboardComponent implements OnInit {
 
   public matchsList: any = [];
-
+  
   constructor(private appService: ApiService ) {
   }
 
   ngOnInit(): void {
+    
+    this.getMatchs();
+    
+  }
+
+  getMatchs() {
     this.appService.getMatchListFromBack().subscribe(matchs => {
+      console.log(matchs);
       this.matchsList.push(matchs);
-      console.log(this.matchsList)
-
-      console.log(this.matchsList[0][4].id);
+      return matchs; 
     })
-
-    /*this.appService.getPredictions().subscribe(matchs => {
-      this.matchsList.push(matchs);
-      console.log(this.matchsList)
-    })*/
   }
 
 }
