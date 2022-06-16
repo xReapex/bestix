@@ -128,7 +128,7 @@
         <button
           class="flex-shrink-0 bg-red-500 hover:bg-orange-700 border-red-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 rounded"
           type="button" (click)="putPlayerNameById()">
-          PUT Player name by ID
+          PUT Player password by ID
         </button>
 
         <input
@@ -143,6 +143,28 @@
 
       </div>
     </form>
+
+    <form class="w-full max-w-sm">
+      <div class="flex items-center border-b border-teal-500 py-2">
+        <button
+          class="flex-shrink-0 bg-red-500 hover:bg-orange-700 border-red-500 hover:border-orange-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button" (click)="putUserPasswordById()">
+          PUT User name by ID
+        </button>
+
+        <input
+          class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+          [formControl]="putUserPasswordByIdInput" [(ngModel)]="currentPutUserId" placeholder="Type player ID"
+          type="text">
+
+        <input
+          class="appearance-none bg-transparent border-none text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+          [formControl]="putUserPasswordByIdInput" [(ngModel)]="currentPutUserPassword" placeholder="Type player new name"
+          type="text">
+
+      </div>
+    </form>
+
 
   </div>
 </div>

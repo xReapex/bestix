@@ -27,6 +27,9 @@ export class ApiCallTestComponent implements OnInit {
   currentPutPlayerId = '';
   currentPutPlayerName = '';
 
+//PUT - Change User name by Id
+currentPutUserId = '';
+currentPutUserPassword = '';
 
   /** 
    * Form control for input element where user types
@@ -46,6 +49,9 @@ export class ApiCallTestComponent implements OnInit {
   //PUT
   putPlayerNameByIdInput = new FormControl();
 
+ //PUT user 
+  putUserPasswordByIdInput = new FormControl();
+
 
   /** Observable of array of accumulated user inputs */
   history$: Observable<string[]>;
@@ -64,6 +70,7 @@ export class ApiCallTestComponent implements OnInit {
 
   public value1: string | undefined;
   public playerName: string | undefined;
+  public UserPassword: string | undefined;
 
   ngOnInit(): void {
   }
@@ -118,7 +125,6 @@ export class ApiCallTestComponent implements OnInit {
     console.log("[EVENT] Button GET Player by ID pressed");
 
   }
-
 
   getExternalPlayerById() {
     //ID Exemple : 34145937
@@ -183,6 +189,21 @@ export class ApiCallTestComponent implements OnInit {
       console.log("[PUT] Erreur", error);
     })
     console.log("[EVENT] Button PUT Player pressed");
+
   }
+
+  putUserPasswordById() {
+    let id = this.currentPutUserId;
+    let password = this.currentPutUserPassword;
+    let body = { password }
+
+    this.httpClient.put('/api/user/' + id, password).subscribe(response => {
+      console.log("[PUT] from back : ", response);
+    }, error => {
+      console.log("[PUT] Erreur", error);
+    })
+    console.log("[EVENT] Button PUT User pressed");
+  }
+
 
 }
