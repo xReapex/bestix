@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -42,25 +41,5 @@ export class ApiService {
   {
     let defaultUserIdForTests = 0;
     return this.http.delete("http://localhost:8080/api/Favorites/playerId=" + id + "&userId=" + defaultUserIdForTests);
-  }
-
-  public getLeaguesList()
-  {
-    return this.http.get("http://localhost:8080/api/league/list");
-  }
-
-  public requestLeagueAccess(leagueId: string, password: string, userId: string)
-  {
-    return this.http.post("http://localhost:8080/api/league/" + leagueId + "/" + password + "/" + userId, null);
-  }
-
-  public checkJoinedLeaguesByUserId(userId: string)
-   {
-     return this.http.get("http://localhost:8080/api/league/" + userId);
-   }
-
-  public getLeagueUserList(leagueId: string)
-  {
-    return this.http.get("http://localhost:8080/api/league/" + leagueId + "/users");
   }
 }
