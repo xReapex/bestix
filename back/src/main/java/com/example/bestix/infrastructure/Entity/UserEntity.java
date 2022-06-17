@@ -13,7 +13,7 @@ public class UserEntity {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "password")
+    @Column(name="password")
     private String password;
 
     public int getId() {
