@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class UserComponent implements OnInit {
 
 //PUT - Change User name by Id
-currentPutUserId = '';
+//currentPutUserId = '';
 currentPutUserPassword = '';
 
   //PUT user 
@@ -26,11 +26,11 @@ currentPutUserPassword = '';
   ngOnInit(): void {
   }
   putUserPasswordById() {
-    let id = this.currentPutUserId;
+   // let id = this.currentPutUserId;
     let password = this.currentPutUserPassword;
     let body = { password }
 
-    this.httpClient.put('/api/user/' + id, password).subscribe(response => {
+    this.httpClient.put('/api/user/0', password).subscribe(response => {
       console.log("[PUT] from back : ", response);
     }, error => {
       console.log("[PUT] Erreur", error);
