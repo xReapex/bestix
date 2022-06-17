@@ -13,6 +13,11 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
+    public String getUserData(int userId) {
+        return null;
+    }
+
+    @Override
     public void changeUserPasswordById(int userId, String password) {
         this.userRepository.changeUserPasswordById(userId, password);
     }
