@@ -5,10 +5,7 @@
         <table class="w-full">
           <thead>
             <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-              <th class="px-4 py-3">{{ leagueName }}</th>
-              <th class="px-4 py-3"></th>
-              <th class="px-4 py-3"></th>
-              <th class="px-4 py-3"></th>
+              <th class="px-4 py-3">Nom de la league: {{ leagueName }}</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
@@ -26,11 +23,6 @@
                     </div>
                   </div>
                 </td>
-                <td class="px-4 py-3 text-sm"></td>
-                <td class="px-4 py-3 text-xs">
-                 
-                </td>
-                <td class="px-4 py-3 text-sm"></td>
               </tr>
             </div>
 
@@ -38,15 +30,13 @@
         </table>
       </div>
       <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
-        <span class="flex items-center col-span-3"> Nombre de joueurs maximum : {{ nbPlayers }} </span>
-        <span class="col-span-2"></span>
-        <!-- Pagination -->
-      </div>
-      <div>
-        <form class="w-full max-w-sm">
+        <span class="flex items-center col-span"> Nombre de joueurs maximum: {{ nbPlayers }} </span>
+        <span class="col-span-2">
+
+          <form class="w-full ">
           <div *ngIf="showJoinInput" class="flex items-center border-b border-teal-500 py-2">
             <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
-            type="text"
+            type="password"
             placeholder="Mot de passe"
             aria-label="Full name"
             [formControl]="formLeaguePassword"
@@ -56,6 +46,11 @@
             </button>
           </div>
         </form>
+
+      </span>
+      </div>
+      <div>
+
         <div
         class="py-3 px-5 mb-4 bg-green-100 text-green-900 text-sm rounded-md border border-green-200" role="alert"
         *ngIf="successJoin">

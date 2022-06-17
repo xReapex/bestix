@@ -35,6 +35,7 @@ export class LeaguesViewComponent implements OnInit {
     let defaultUserId = '0';
     this.apiService.checkJoinedLeaguesByUserId(defaultUserId).subscribe((response) =>
     {
+      console.log("already in league" + response);
       this.joinedLeagueList.push(response);
       console.log("joinedLeagueList :");
       console.log(this.joinedLeagueList);
