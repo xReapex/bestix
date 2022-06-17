@@ -35,7 +35,7 @@ import { UserComponent } from './views/User/user.component';
     FavoritesComponent,
     FormLeagueComponent,
     LeaguesViewComponent,
-    LeagueCardComponent
+    LeagueCardComponent,
     UserComponent
   ],
   imports: [
