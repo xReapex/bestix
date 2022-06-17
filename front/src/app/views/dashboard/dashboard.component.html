@@ -246,9 +246,11 @@
             <div class="flex flex-wrap items-center px-4 py-2">
             </div>
             <div class="block w-full h-full">
-              <app-betting-card></app-betting-card>
-              <p *ngFor= " let match of matchsList"></p>
-              {{match[0][0].firstTeamName}}
+              <p class="flex -space-x-4" *ngFor="let match of matchsList">
+                {{matchsList[0][0].firstTeamName}}
+              </p>
+              <app-betting-card [matchsList]="matchsList"></app-betting-card>
+              <app-betting-card [matchsList]="matchsList"></app-betting-card>
             </div>
           </div>
         </div>

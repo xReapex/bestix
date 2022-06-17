@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api-service';
 
 @Component({
@@ -8,23 +8,24 @@ import { ApiService } from 'src/app/services/api-service';
 })
 export class DashboardComponent implements OnInit {
 
-  public matchsList: any = [];
-  
-  constructor(private appService: ApiService ) {
+  @Input() matchsList: any = [];
+
+  constructor(private appService: ApiService) {
   }
 
   ngOnInit(): void {
-    
+
     this.getMatchs();
-    
+
   }
 
-  getMatchs() {
+  getMatchs(){
     this.appService.getMatchListFromBack().subscribe(matchs => {
       console.log(matchs);
       this.matchsList.push(matchs);
-      return matchs; 
+      return matchs;
     })
   }
+
 
 }

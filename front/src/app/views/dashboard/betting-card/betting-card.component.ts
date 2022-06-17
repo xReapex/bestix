@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { ApiService } from 'src/app/services/api-service';
+import { DashboardComponent } from 'src/app/views/dashboard/dashboard.component'
 
 @Component({
   selector: 'app-betting-card',
@@ -9,18 +11,10 @@ import { ApiService } from 'src/app/services/api-service';
 })
 export class BettingCardComponent implements OnInit {
 
-  public matchsList: any = [];
+  //public matchs = matchsList;
 
-  @Input()
-  match: any | undefined;
-  @Input()
-  team1Name: any | undefined;
-  @Input()
-  team2Name: any |undefined;
-  @Input()
-  utcDate: any | undefined;
-  @Input()
-  status: any | undefined;
+  @Input()  matchsList:any;
+  
 
   constructor( private appService: ApiService ) {}
 
@@ -36,7 +30,7 @@ export class BettingCardComponent implements OnInit {
     } else {
       //alert(JSON.stringify( 'turl' + form.value))
       const choix = JSON.stringify(form.value)
-      const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.match + `&selectedTeamId=`+ choix + `&userId=0`;
+      const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.matchsList[0][0].id + `&selectedTeamId=`+ this.matchsList[0][0].firstTeamID+ `&userId=0`;
       alert(url);
     }
   }

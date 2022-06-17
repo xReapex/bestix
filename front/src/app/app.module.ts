@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './views/login/login.component';
 import { LandingComponent } from './views/landing/landing.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { BettingCardComponent } from './components/betting-card/betting-card.component';
+import { BettingCardComponent } from './views/dashboard/betting-card/betting-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiCallTestComponent } from './components/api-call-test/api-call-test.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
