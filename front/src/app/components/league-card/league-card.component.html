@@ -1,0 +1,68 @@
+  <!-- Client Table -->
+  <div class="mt-4 mx-4">
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+      <div class="w-full overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+              <th class="px-4 py-3">Nom de la league: {{ leagueName }}</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+
+            <div *ngFor="let user of userList[0]">
+              <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400">
+                <td class="px-4 py-3">
+                  <div class="flex items-center text-sm">
+                    <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
+                      <img *ngIf="hasUsers" class="object-cover w-full h-full rounded-full" src="https://img2.thejournal.ie/inline/1881369/original/?width=630&version=1881369" alt="" loading="lazy" />
+                      <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
+                    </div>
+                    <div>
+                      <p class="font-semibold">{{ user }}</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </div>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
+        <span class="flex items-center col-span"> Nombre de joueurs maximum: {{ nbPlayers }} </span>
+        <span class="col-span-2">
+
+          <form class="w-full ">
+          <div *ngIf="showJoinInput" class="flex items-center border-b border-teal-500 py-2">
+            <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none"
+            type="password"
+            placeholder="Mot de passe"
+            aria-label="Full name"
+            [formControl]="formLeaguePassword"
+            [(ngModel)]="textLeaguePassword">
+            <button id="{{ leagueId }}" (click)="joinLeague($event)" class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+              Rejoindre
+            </button>
+          </div>
+        </form>
+
+      </span>
+      </div>
+      <div>
+
+        <div
+        class="py-3 px-5 mb-4 bg-green-100 text-green-900 text-sm rounded-md border border-green-200" role="alert"
+        *ngIf="successJoin">
+          Vous avez rejoins la league!
+        </div>
+        <div
+        class="py-3 px-5 mb-4 bg-red-100 text-red-900 text-sm rounded-md border border-red-200" role="alert"
+        *ngIf="errorJoin">
+          Mauvais mot de passe.
+      </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ./Client Table -->

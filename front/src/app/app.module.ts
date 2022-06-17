@@ -16,6 +16,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FavoritesComponent } from './views/favorites/favorites.component';
 import { FormLeagueComponent } from './views/form-league/form-league.component';
+import { LeaguesViewComponent } from './views/leagues-view/leagues-view.component';
+import { LeagueCardComponent } from './components/league-card/league-card.component';
 import { UserComponent } from './views/User/user.component';
 
 @NgModule({
@@ -32,6 +34,8 @@ import { UserComponent } from './views/User/user.component';
     HeaderComponent,
     FavoritesComponent,
     FormLeagueComponent,
+    LeaguesViewComponent,
+    LeagueCardComponent
     UserComponent
   ],
   imports: [

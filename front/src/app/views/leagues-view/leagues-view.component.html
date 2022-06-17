@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+
+<div class="bg-gradient-to-tr from-blue-800 to-purple-700 min-h-screen overflow-auto">
+    <div class="container py-24 mx-auto ml-auto">
+
+        <div *ngFor="let league of leaguesList[0]">
+          <div *ngIf="joinedLeagueList[0].indexOf(league.id) > -1;else other_content">
+            <app-league-card leagueId = "{{ league.id }}" leagueName = "{{ league.name }}" nbPlayers = "{{ league.nbPlayers }}"></app-league-card>
+          </div>
+          <ng-template #other_content>
+            <app-league-card leagueId = "{{ league.id }}" leagueName = "{{ league.name }}" nbPlayers = "{{ league.nbPlayers }}" showJoinInput="show"></app-league-card>
+          </ng-template>
+        </div>
+
+ </div>
+</div>

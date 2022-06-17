@@ -5,13 +5,12 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class UserEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
 
-    @Column(name="username")
+    @Column(name = "username")
     private String username;
 
     @Column(name="password")
