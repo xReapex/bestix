@@ -175,16 +175,21 @@
             <div class="relative w-full max-w-full flex-grow flex-1">
               <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Matchs à venir</h3>
             </div>
-            <div class="relative w-full max-w-full flex-grow flex-1 text-right ">
-              <button class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
-            </div>
             <div class="rounded-t mb-0 px-0 border-0 overflow-auto">
               <div class="flex flex-wrap items-center px-4 py-2">
               </div>
               <div class="block w-full h-full">
                 <div *ngIf="matchsList">
-                  <div *ngFor="let match of matchsList[0]">
-                    <app-betting-card matchId="{{match.id}}" id1="{{match.firstTeamID}}" id2="{{match.secondTeamID}}" equipe1="{{match.firstTeamName}}" equipe2="{{match.secondTeamName}}" date="{{match.date}}"></app-betting-card>
+                  <div *ngFor="let match of nextMatchList">
+                    <app-betting-card 
+                    matchId="{{match.id}}"
+                    id1="{{match.firstTeamID}}"
+                    id2="{{match.secondTeamID}}"
+                    equipe1="{{match.firstTeamName}}"
+                    equipe2="{{match.secondTeamName}}"
+                    date="{{match.date}}"
+                    canBet="1"
+                    ></app-betting-card>
                   </div>
                 </div>
               </div>
@@ -195,33 +200,32 @@
           <!-- Recent Activities -->
           <div class="relative flex flex-col min-w-0 h-80 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded ">
             <div class="relative w-full max-w-full flex-grow flex-1">
-              <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Matchs passés</h3>
-            </div>
-            <div class="relative w-full max-w-full flex-grow flex-1 text-right ">
-              <button class="bg-blue-500 dark:bg-gray-100 text-white active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">See all</button>
+              <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50">Résultats</h3>
             </div>
             <div class="rounded-t mb-0 px-0 border-0 overflow-auto">
               <div class="flex flex-wrap items-center px-4 py-2">
               </div>
               <div class="block w-full h-full">
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
+                <div *ngIf="matchsList">
+                  <div *ngFor="let match of prevMatchList">
+                    <app-betting-card
+                    matchId="{{match.id}}"
+                    id1="{{match.firstTeamID}}"
+                    id2="{{match.secondTeamID}}"
+                    equipe1="{{match.firstTeamName}}"
+                    equipe2="{{match.secondTeamName}}"
+                    date="{{match.date}}"
+                    canBet="0"
+                    ></app-betting-card>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <!-- ./Recent Activities -->
         </div>
 
-        <!-- Task Summaries -->
-        <div class="ml-10">
-       <app-players-view></app-players-view>
-        </div>
+
         <!-- Client Table -->
         <div class="mt-4 mx-4">
           <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -229,8 +233,8 @@
               <table class="w-full">
                 <thead>
                   <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                    <th class="px-4 py-3">Client</th>
-                    <th class="px-4 py-3">Amount</th>
+                    <th class="px-4 py-3">Joueurs</th>
+                    <th class="px-4 py-3">Coins</th>
                     <th class="px-4 py-3">Status</th>
                     <th class="px-4 py-3">Date</th>
                   </tr>

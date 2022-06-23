@@ -27,6 +27,8 @@ export class BettingCardComponent implements OnInit {
   @Input()
   date: any;
 
+  @Input()
+  canBet: any;
   
   selectedTeam: any;
   radio1State: any;
@@ -43,7 +45,7 @@ export class BettingCardComponent implements OnInit {
     this.appService.getNextMatch().subscribe(matchs => {
       this.matchsList.push(matchs);
       this.matchsList = this.matchsList[0]['matches']
-      console.log(this.matchsList)
+      //console.log(this.matchsList)
     })
 
   }

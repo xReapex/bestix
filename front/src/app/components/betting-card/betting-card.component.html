@@ -1,38 +1,44 @@
 
 <!-- Form starts -->
-<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate class="border-solid border-2 border-white-500 ... bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">
   <!-- Gender -->
   <div class="grid grid-cols-4 h-24">
     <div>
       <input id="{{ id1 }}"  type="radio" class="custom-control-input" name="bet" value="team1"
       [(ngModel)]="radio2State"
       [checked]="true" 
-      (change)="onItemChange($event)">
+      (change)="onItemChange($event)"
+      *ngIf="canBet == 1">
 
       <label class="custom-control-label truncate" for="team1">{{ equipe1 }} </label>
       
     </div>
-    <p class="text-gray-600 font-bold">VS</p>
+    <p class="text-white-600 font-bold">VS</p>
     <div>
       <input id="{{ id2 }}" type="radio" class="custom-control-input" name="bet" value="team2"
       [(ngModel)]="radio2State"
       [checked]="true" 
-      (change)="onItemChange($event)">
+      (change)="onItemChange($event)"
+      *ngIf="canBet == 1">
       <label class="custom-control-label" for="team2">{{ equipe2 }} </label>
     </div>
     <div>
-      <p> Prévu le: {{ date }}</p>
+      <p> Date : {{ date }}</p>
+      <p *ngIf="canBet != 1"> Score : 0 - 1</p>
     </div>
     <div *ngIf="isSubmitted && myForm.invalid">
       <p>Please select either value</p>
     </div>
+    <p *ngIf="canBet != 1"> Vous aviez parié sur : Nom de l'équipe</p>
     <!-- Submit Button -->
     <button
+    *ngIf="canBet == 1"
       type="submit"
       class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit">
       Parier
     </button>
     <button
+    *ngIf="canBet == 1"
     class="rounded-lg text-green-500 font-bold bg-green-100 py-1 px-3 text-sm w-fit h-fit">
     Parié
   </button>
