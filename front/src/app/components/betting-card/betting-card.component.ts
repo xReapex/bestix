@@ -12,15 +12,28 @@ export class BettingCardComponent implements OnInit {
   public matchsList: any = [];
 
   @Input()
-  match: any | undefined;
+  matchId: any;
+
   @Input()
-  team1Name: any | undefined;
+  id1: any;
+
   @Input()
-  team2Name: any |undefined;
+  id2: any;
+
   @Input()
-  utcDate: any | undefined;
+  equipe1: any;
   @Input()
-  status: any | undefined;
+  equipe2: any;
+  @Input()
+  date: any;
+
+  
+  selectedTeam: any;
+  radio1State: any;
+  radio2State: any;
+
+
+
 
   constructor( private appService: ApiService ) {}
 
@@ -34,6 +47,9 @@ export class BettingCardComponent implements OnInit {
     })
 
   }
+
+  
+  
   submitForm(form: NgForm): any {
     this.isSubmitted = true;
     if (!form.valid) {
@@ -41,10 +57,18 @@ export class BettingCardComponent implements OnInit {
     } else {
       //alert(JSON.stringify( 'turl' + form.value))
       const choix = JSON.stringify(form.value)
-      const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.match + `&selectedTeamId=`+ choix + `&userId=0`;
+      const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.matchId + `&selectedTeamId=`+ this.selectedTeam + `&userId=0`;
+      console.log("matchId : " + this.matchId);
       alert(url);
     }
   }
+
+  onItemChange(event: any){
+
+    console.log(" Value is : ", event.target.id );
+    this.selectedTeam = event.target.id;
+ }
+ 
   
 
 }

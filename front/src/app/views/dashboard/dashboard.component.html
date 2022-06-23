@@ -182,14 +182,11 @@
               <div class="flex flex-wrap items-center px-4 py-2">
               </div>
               <div class="block w-full h-full">
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
-                <app-betting-card></app-betting-card>
+                <div *ngIf="matchsList">
+                  <div *ngFor="let match of matchsList[0]">
+                    <app-betting-card matchId="{{match.id}}" id1="{{match.firstTeamID}}" id2="{{match.secondTeamID}}" equipe1="{{match.firstTeamName}}" equipe2="{{match.secondTeamName}}" date="{{match.date}}"></app-betting-card>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
