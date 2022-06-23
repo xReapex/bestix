@@ -24,6 +24,7 @@ export class FormLeagueComponent implements OnInit {
   constructor(private httpClient: HttpClient, private apiService: ApiService) {
     this.leaguesAvailable = [
       {
+
         code: 'FL1',
         name: 'Ligue 1',
       },
