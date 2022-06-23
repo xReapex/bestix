@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "leagues")
 public class LeagueEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_league")
