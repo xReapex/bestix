@@ -55,11 +55,14 @@ export class BettingCardComponent implements OnInit {
     if (!form.valid) {
       return false;
     } else {
-      //alert(JSON.stringify( 'turl' + form.value))
-      const choix = JSON.stringify(form.value)
       const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.matchId + `&selectedTeamId=`+ this.selectedTeam + `&userId=0`;
       console.log("matchId : " + this.matchId);
-      alert(url);
+      //alert(url);
+
+      let defaultUserId = "0";
+      this.appService.saveMatchBetByUserId(this.matchId, this.selectedTeam, defaultUserId).subscribe(response => {
+        console.log("POST BET");
+      });
     }
   }
 
