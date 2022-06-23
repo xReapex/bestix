@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/services/api-service';
 
 @Component({
@@ -8,22 +9,20 @@ import { ApiService } from 'src/app/services/api-service';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input() matchsList: any = [];
+ matchsList: any = [];
 
   constructor(private appService: ApiService) {
   }
 
   ngOnInit(): void {
-
     this.getMatchs();
-
   }
 
-  getMatchs(){
+  getMatchs()
+  {
     this.appService.getMatchListFromBack().subscribe(matchs => {
       console.log(matchs);
       this.matchsList.push(matchs);
-      return matchs;
     })
   }
 

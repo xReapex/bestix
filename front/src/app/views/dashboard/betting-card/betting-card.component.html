@@ -5,16 +5,16 @@
     <div>
       <input id="team1" type="radio" class="custom-control-input" name="bet" value="team1">
 
-      <label class="custom-control-label truncate" for="team1">{{matchsList[0][0].firstTeamName}}</label>
+      <label class="custom-control-label truncate" for="team1">{{ equipe1 }} </label>
       
     </div>
     <p class="text-gray-600 font-bold">VS</p>
     <div>
       <input id="team2" type="radio" class="custom-control-input" name="bet" value="team2" >
-      <label class="custom-control-label" for="team2" *ngFor="let match of matchsList">{{matchsList[0][0].secondTeamName}} </label>
+      <label class="custom-control-label" for="team2">{{ equipe2 }} </label>
     </div>
     <div>
-      <p> Prévu le: {{matchsList[0][0].date}}</p>
+      <p> Prévu le: {{ date }}</p>
     </div>
     <div *ngIf="isSubmitted && myForm.invalid">
       <p>Please select either value</p>

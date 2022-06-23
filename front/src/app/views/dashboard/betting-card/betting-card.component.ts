@@ -13,7 +13,15 @@ export class BettingCardComponent implements OnInit {
 
   //public matchs = matchsList;
 
-  @Input()  matchsList:any;
+  @Input() 
+  matchsList: any;
+  @Input()
+  equipe1: any;
+  @Input()
+  equipe2: any;
+  @Input()
+  date: any;
+
   
 
   constructor( private appService: ApiService ) {}
