@@ -8,7 +8,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  public matchsList: any = [];
+
+  matchsList: any = []; 
 
   constructor(private appService: ApiService ) {
   }
