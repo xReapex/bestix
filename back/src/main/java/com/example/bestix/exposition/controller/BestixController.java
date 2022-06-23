@@ -2,8 +2,10 @@ package com.example.bestix.exposition.controller;
 
 import com.example.bestix.domain.service.BetService;
 import com.example.bestix.domain.service.PlayerService;
+import com.example.bestix.domain.service.matchService;
 import com.example.bestix.infrastructure.Entity.BetEntity;
 import com.example.bestix.infrastructure.Entity.FavoritePlayer;
+import com.example.bestix.infrastructure.Entity.Match;
 import com.example.bestix.infrastructure.Entity.Player;
 import com.sun.tools.jconsole.JConsoleContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,56 +26,23 @@ import java.util.Optional;
 public class BestixController {
 
     PlayerService playerService;
+    matchService match_Service;
 
     @Autowired
-    public BestixController(PlayerService playerService) {
+    public BestixController(PlayerService playerService, matchService match_Service) {
         this.playerService = playerService;
+        this.match_Service = match_Service;
     }
 
-    /*
-    Tests calls
-
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello World";
+/*
+Matchs
+ */
+    @GetMapping("/matchs/scheduled")
+    public List<Match> getScheduledMatchs(){
+    List<Match> matchs = match_Service.getAllMatchs();
+    System.out.println(matchs);
+    return matchs;
     }
-
-    @GetMapping("/toto")
-    public TotoDTO getToto()
-    {
-        List<String> ls = new ArrayList<>();
-        ls.add("v1");
-        ls.add("v2");
-
-        return new TotoDTO("Hello", 1, new Date(), ls);
-    }
-
-    @PostMapping("/toto")
-    public ResponseEntity<TotoDTO> postBody(@RequestBody TotoDTO toto) {
-        TotoDTO newToto = new TotoDTO(toto.message, toto.value, toto.date, toto.stringList);
-        return ResponseEntity.ok(newToto);
-    }
-
-    public static class TotoDTO
-    {
-        public String message;
-        public int value;
-        public Date date;
-        public List<String> stringList;
-
-
-        public TotoDTO(String message, int value, Date date, List<String> stringList) {
-            this.message = message;
-            this.value = value;
-            this.date = date;
-            this.stringList = stringList;
-        }
-    }   */
-
-
-
-
 
 /*
 Players
