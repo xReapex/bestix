@@ -63,4 +63,10 @@ export class ApiService {
   {
     return this.http.get("http://localhost:8080/api/league/" + leagueId + "/users");
   }
+  public getMatchListFromBack()
+  {
+
+    return this.http.get("http://localhost:8080/api/matchs/scheduled");
+
+  }
 }
