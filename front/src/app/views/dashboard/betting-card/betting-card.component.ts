@@ -15,6 +15,16 @@ export class BettingCardComponent implements OnInit {
 
   @Input() 
   matchsList: any;
+
+  @Input()
+  matchId: any;
+
+  @Input()
+  id1: any;
+
+  @Input()
+  id2: any;
+
   @Input()
   equipe1: any;
   @Input()
@@ -23,6 +33,9 @@ export class BettingCardComponent implements OnInit {
   date: any;
 
   
+  selectedTeam: any;
+  radio1State: any;
+  radio2State: any;
 
   constructor( private appService: ApiService ) {}
 
@@ -31,6 +44,7 @@ export class BettingCardComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  
   submitForm(form: NgForm): any {
     this.isSubmitted = true;
     if (!form.valid) {
@@ -38,10 +52,18 @@ export class BettingCardComponent implements OnInit {
     } else {
       //alert(JSON.stringify( 'turl' + form.value))
       const choix = JSON.stringify(form.value)
-      const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.matchsList[0][0].id + `&selectedTeamId=`+ this.matchsList[0][0].firstTeamID+ `&userId=0`;
+      const url = `http://localhost:8080/api/matchs/bet/matchId=` + this.matchId + `&selectedTeamId=`+ this.selectedTeam + `&userId=0`;
+      console.log("matchId : " + this.matchId);
       alert(url);
     }
   }
+
+  onItemChange(event: any){
+
+    console.log(" Value is : ", event.target.id );
+    this.selectedTeam = event.target.id;
+ }
+ 
   
 
 }
