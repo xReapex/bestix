@@ -14,7 +14,7 @@ export class FormLeagueComponent implements OnInit {
 
   currentLeagueName = '';
   currentNbPlayers = '';
-  currentChampionnat = '';
+  currentChampionnat = BigInt('');
   currentPassword = '';
 
   getLeagueInfos = new FormControl();
@@ -24,19 +24,22 @@ export class FormLeagueComponent implements OnInit {
   constructor(private httpClient: HttpClient, private apiService: ApiService) {
     this.leaguesAvailable = [
       {
-
+        id : 0,
         code: 'FL1',
         name: 'Ligue 1',
       },
       {
+        id : 1,
         code: 'FL2',
         name: 'Ligue 2',
       },
       {
+        id : 2,
         code: 'ABL',
         name: 'Bundesliga',
       },
       {
+        id : 3,
         code: 'BEL',
         name: 'Coupe de Belgique',
       },
@@ -58,6 +61,7 @@ export class FormLeagueComponent implements OnInit {
     if (
       this.currentLeagueName == '' ||
       this.currentNbPlayers == '' ||
+      this.currentChampionnat == BigInt('')||
       this.currentPassword == ''
     ) {
       this.errorCreation = true;
@@ -70,7 +74,7 @@ export class FormLeagueComponent implements OnInit {
         '&nbPlayers=' +
         this.currentNbPlayers +
         '&championnat=' +
-        0 +
+        this.currentChampionnat+
         '&password=' +
         this.currentPassword;
 
