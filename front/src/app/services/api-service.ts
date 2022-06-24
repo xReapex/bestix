@@ -73,4 +73,9 @@ export class ApiService {
   {
     return this.http.post("http://localhost:8080/api/bet/matchId=" + matchId + "&teamId=" + teamId + "&userId=" + userId, null);
   }
+
+  public getBetResultsByUserId(userId: string)
+  {
+    return this.http.get("http://localhost:8080/api/bet/userId=" + userId + "/results");
+  }
 }

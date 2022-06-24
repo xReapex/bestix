@@ -28,9 +28,18 @@ export class BettingCardComponent implements OnInit {
   date: any;
 
   @Input()
+  score1: any;
+  @Input()
+  score2: any;
+
+  @Input()
   canBet: any;
+
+  @Input()
+  hasWin: any;
   
   selectedTeam: any;
+  selectedTeamName: any;
   radio1State: any;
   radio2State: any;
 
