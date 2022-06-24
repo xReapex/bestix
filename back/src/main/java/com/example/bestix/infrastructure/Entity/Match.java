@@ -30,6 +30,11 @@ public class Match {
     @Column(name = "date")
     private String date;
 
+    @Column(name = "firstTeamScore", columnDefinition = "integer default 0")
+    private int firstTeamScore;
+
+    @Column(name = "secondTeamScore", columnDefinition = "integer default 0")
+    private int secondTeamScore;
 
     public Match(int id, String firstTeamName, int firstTeamID, String secondTeamName, int secondTeamID, String place,
             String date) {
@@ -105,6 +110,22 @@ public class Match {
     public void setDate(String date) {
 
         this.date = date;
+    }
+
+    public int getFirstTeamScore() {
+        return firstTeamScore;
+    }
+
+    public void setFirstTeamScore(int firstTeamScore) {
+        this.firstTeamScore = firstTeamScore;
+    }
+
+    public int getSecondTeamScore() {
+        return secondTeamScore;
+    }
+
+    public void setSecondTeamScore(int secondTeamScore) {
+        this.secondTeamScore = secondTeamScore;
     }
 
 }

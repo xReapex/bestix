@@ -9,9 +9,12 @@
       [checked]="true" 
       (change)="onItemChange($event)"
       *ngIf="canBet == 1">
-
-      <label class="custom-control-label truncate" for="team1">{{ equipe1 }} </label>
-      
+      <button
+      class="bg-white text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded"
+      disabled>
+      {{ equipe1 }}
+      <p> {{ score1 }}  </p>
+      </button>      
     </div>
     <p class="text-white-600 font-bold">VS</p>
     <div>
@@ -20,16 +23,26 @@
       [checked]="true" 
       (change)="onItemChange($event)"
       *ngIf="canBet == 1">
-      <label class="custom-control-label" for="team2">{{ equipe2 }} </label>
+      <button
+      class="bg-white text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded"
+      disabled>
+      {{ equipe2 }}
+      <p> {{ score2 }}  </p>
+      </button>
     </div>
     <div>
       <p> Date : {{ date }}</p>
-      <p *ngIf="canBet != 1"> Score : 0 - 1</p>
+      <button
+      type="button"
+      class="text-bold inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out"
+      *ngIf="canBet != 1">
+      Gagné
+      </button>
     </div>
     <div *ngIf="isSubmitted && myForm.invalid">
       <p>Please select either value</p>
     </div>
-    <p *ngIf="canBet != 1"> Vous aviez parié sur : Nom de l'équipe</p>
+    
     <!-- Submit Button -->
     <button
     *ngIf="canBet == 1"

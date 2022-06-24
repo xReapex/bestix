@@ -28,6 +28,11 @@ export class BettingCardComponent implements OnInit {
   date: any;
 
   @Input()
+  score1: any;
+  @Input()
+  score2: any;
+
+  @Input()
   canBet: any;
   
   selectedTeam: any;
