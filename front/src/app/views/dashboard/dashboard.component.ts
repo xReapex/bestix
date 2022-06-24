@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
  matchsList: any = [];
  nextMatchList: any = [];
  prevMatchList: any = [];
+ betResusltList: any = [];
 
   constructor(private appService: ApiService) {
   }
@@ -20,9 +21,19 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getMatchs();
     this.changeFormat();
+    this.getBetResults();
 
     //this.testDates();
     
+  }
+
+  getBetResults()
+  {
+    this.appService.getBetResultsByUserId("0").subscribe(results => {
+      this.betResusltList.push(results);
+      console.log("betResultList : ");
+      console.log(this.betResusltList[0]);
+    });
   }
 
   compareDatesForMatches()
@@ -57,7 +68,7 @@ export class DashboardComponent implements OnInit {
   ChangedFormat: any;
  
   changeFormat(){
-    this.ChangedFormat = this.pipe.transform(this.today, 'MM.dd.YYYY');
+    this.ChangedFormat = this.pipe.transform(this.today, 'MM/dd/YYYY');
     this.changedDate = this.ChangedFormat;
     console.log(this.changedDate);
   }
