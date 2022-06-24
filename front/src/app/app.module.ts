@@ -18,6 +18,7 @@ import { FavoritesComponent } from './views/favorites/favorites.component';
 import { FormLeagueComponent } from './views/form-league/form-league.component';
 import { LeaguesViewComponent } from './views/leagues-view/leagues-view.component';
 import { LeagueCardComponent } from './components/league-card/league-card.component';
+import { UserComponent } from './views/User/user.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LeagueCardComponent } from './components/league-card/league-card.compon
     HeaderComponent,
     FavoritesComponent,
     FormLeagueComponent,
+    UserComponent,
     LeaguesViewComponent,
     LeagueCardComponent
   ],

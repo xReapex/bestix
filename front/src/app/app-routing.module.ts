@@ -10,6 +10,7 @@ import { PlayerCardComponent } from './components/player-card/player-card.compon
 import { PlayersViewComponent } from './views/players-view/players-view.component';
 import { FormLeagueComponent } from './views/form-league/form-league.component';
 import { LeaguesViewComponent } from './views/leagues-view/leagues-view.component';
+import { UserComponent } from './views/User/user.component';
 
 const routes: Routes = [];
 
@@ -41,8 +42,16 @@ const routes: Routes = [];
         component: LeaguesViewComponent
       },
       {
-        path: '**',
+        path: 'user',
+        component: UserComponent
+      },
+      {
+        path: 'accueil',
         component: LandingComponent
+      },
+      {
+        path: '**',
+        component: LoginComponent
       }
     ]),
   ],

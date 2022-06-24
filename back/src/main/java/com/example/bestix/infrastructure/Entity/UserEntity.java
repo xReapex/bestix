@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class UserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -39,4 +40,4 @@ public class UserEntity {
     public void setPassword(String password) {
         this.password = password;
     }
-}
+} 
