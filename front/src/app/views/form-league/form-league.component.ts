@@ -14,7 +14,7 @@ export class FormLeagueComponent implements OnInit {
 
   currentLeagueName = '';
   currentNbPlayers = '';
-  currentChampionnat : any = [0];
+  currentChampionnat : any = [1];
   currentPassword = '';
 
   getLeagueInfos = new FormControl();
@@ -61,7 +61,7 @@ export class FormLeagueComponent implements OnInit {
     if (
       this.currentLeagueName == '' ||
       this.currentNbPlayers == '' ||
-      this.currentChampionnat == ['0']||
+      this.currentChampionnat == [1]||
       this.currentPassword == ''
     ) {
       this.errorCreation = true;
@@ -91,12 +91,14 @@ export class FormLeagueComponent implements OnInit {
     }
   }
 
-  addClicked(event: any)
+  /*addClicked(event: any)
   {
     console.log('ok '+ this.currentChampionnat);
 
-  }
+  }*/
 
-
+  changeClient(event:any) {
+    console.log(this.currentChampionnat);
+}
 
 }

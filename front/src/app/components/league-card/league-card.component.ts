@@ -16,6 +16,8 @@ export class LeagueCardComponent implements OnInit {
   @Input()
   nbPlayers: string | undefined;
   @Input()
+  championnat: string | undefined;
+  @Input()
   showJoinInput: string | undefined;
 
   formLeaguePassword = new FormControl();
