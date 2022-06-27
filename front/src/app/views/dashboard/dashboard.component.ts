@@ -61,7 +61,6 @@ export class DashboardComponent implements OnInit {
           }
         }
 
-
         //this.prevMatchList.push(this.matchsList[0][i]);
 
         this.matchInfos = {
