@@ -37,14 +37,19 @@ export class BettingCardComponent implements OnInit {
 
   @Input()
   hasWin: any;
-  
+
   selectedTeam: any;
   selectedTeamName: any;
   radio1State: any;
   radio2State: any;
 
+  canBetOnCard:boolean=true;
+  hasBet:boolean=false;
 
-
+  betFunction() {
+    this.canBetOnCard=false;
+    this.hasBet=true;
+  }
 
   constructor( private appService: ApiService ) {}
 
@@ -59,8 +64,8 @@ export class BettingCardComponent implements OnInit {
 
   }
 
-  
-  
+
+
   submitForm(form: NgForm): any {
     this.isSubmitted = true;
     if (!form.valid) {
@@ -82,7 +87,7 @@ export class BettingCardComponent implements OnInit {
     console.log(" Value is : ", event.target.id );
     this.selectedTeam = event.target.id;
  }
- 
-  
+
+
 
 }

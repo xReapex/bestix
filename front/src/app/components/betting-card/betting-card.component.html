@@ -1,68 +1,48 @@
-
 <!-- Form starts -->
-<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate class="border-solid border-2 border-white-500 ... bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">
+<form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate
+  class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">
   <!-- Gender -->
   <div class="grid grid-cols-4 h-24">
     <div>
-      <input id="{{ id1 }}"  type="radio" class="custom-control-input" name="bet" value="{{ equipe1 }}"
-      [(ngModel)]="radio2State"
-      [checked]="true" 
-      (change)="onItemChange($event)"
-      *ngIf="canBet == 1">
-      <button
-      class="bg-white text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded"
-      disabled>
-      {{ equipe1 }}
-      <p> {{ score1 }}  </p>
-      </button>      
+      <input id="{{ id1 }}" type="radio" class="custom-control-input" name="bet" value="{{ equipe1 }}"
+        [(ngModel)]="radio2State" [checked]="true" (change)="onItemChange($event)" *ngIf="canBet == 1 && hasBet != true">
+      <button class="bg-white text-blue-700 font-semibold py-2 px-4 rounded" disabled>
+        {{ equipe1 }}
+        <p> {{ score1 }} </p>
+      </button>
     </div>
     <p class="text-white-600 font-bold">VS</p>
     <div>
       <input id="{{ id2 }}" type="radio" class="custom-control-input" name="bet" value="{{ equipe2 }}"
-      [(ngModel)]="radio2State"
-      [checked]="true" 
-      (change)="onItemChange($event)"
-      *ngIf="canBet == 1">
-      <button
-      class="bg-white text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded"
-      disabled>
-      {{ equipe2 }}
-      <p> {{ score2 }}  </p>
+        [(ngModel)]="radio2State" [checked]="true" (change)="onItemChange($event)" *ngIf="canBet == 1 && hasBet != true">
+      <button class="bg-white text-blue-700 font-semibold py-2 px-4 rounded" disabled>
+        {{ equipe2 }}
+        <p> {{ score2 }} </p>
       </button>
     </div>
     <div>
       <p> Date : {{ date }}</p>
-      <button
-      type="button"
-      class="text-bold inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md"
-      *ngIf="canBet != 1 && hasWin == 1"
-      disabled>
-      Pari Gagné
+      <button type="button"
+        class="text-bold inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md"
+        *ngIf="canBet != 1 && hasWin == 1" disabled>
+        Pari Gagné
       </button>
-      <button
-      type="button"
-      class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md"
-      *ngIf="canBet != 1 && hasWin == 0"
-      disabled>
-      Pari Perdu
-    </button>
+      <button type="button"
+        class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md"
+        *ngIf="canBet != 1 && hasWin == 0" disabled>
+        Pari Perdu
+      </button>
     </div>
     <div *ngIf="isSubmitted && myForm.invalid">
       <p>Please select either value</p>
     </div>
-    
+
     <!-- Submit Button -->
-    <button
-    *ngIf="canBet == 1"
-      type="submit"
+    <button *ngIf="canBet == 1" (click)="betFunction()" type="submit"
       class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit">
-      Parier
+      <p *ngIf="canBetOnCard">Parier</p>
+      <p *ngIf="hasBet">Parié</p>
     </button>
-    <button
-    *ngIf="canBet == 1"
-    class="rounded-lg text-green-500 font-bold bg-green-100 py-1 px-3 text-sm w-fit h-fit">
-    Parié
-  </button>
 
   </div>
 </form><!-- Form ends -->
