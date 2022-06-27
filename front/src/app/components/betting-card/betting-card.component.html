@@ -54,12 +54,15 @@
     <!-- Submit Button -->
     <button
     *ngIf="canBet == 1"
-    (click)="betFunction()"
       type="submit"
       class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit">
-      <p *ngIf="canBetOnCard"> Parier </p>
-      <p *ngIf="hasBet"> Parié </p>
+      Parier
     </button>
+    <button
+    *ngIf="canBet == 1"
+    class="rounded-lg text-green-500 font-bold bg-green-100 py-1 px-3 text-sm w-fit h-fit">
+    Parié
+  </button>
 
   </div>
 </form><!-- Form ends -->

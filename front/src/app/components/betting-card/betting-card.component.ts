@@ -43,16 +43,7 @@ export class BettingCardComponent implements OnInit {
   radio1State: any;
   radio2State: any;
 
-  canBetOnCard:boolean=true;
-  hasBet:boolean=false;
- 
-  betFunction(){
-      this.canBetOnCard=false;
-      this.hasBet=true;
-  }
- 
- 
- 
+
 
 
   constructor( private appService: ApiService ) {}
