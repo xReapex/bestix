@@ -29,10 +29,14 @@
 <div class="bg-white rounded-lg -mt-4 w-64">
   <div class="py-5 px-5">
     <span class="font-bold text-gray-800 text-lg">{{ playerName }} </span>
+
+    <!--
     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded-full"
       data-modal-toggle="defaultModal" onclick="document.getElementById('id01').style.display='block'">
       i
     </button>
+    -->
+
     <div *ngIf="alreadyInFavorites!='true' else showRemoveButton">
       <button id="{{ playerId }}"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-700 rounded"

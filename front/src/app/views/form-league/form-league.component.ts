@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ApiService } from 'src/app/services/api-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-league',
@@ -21,7 +22,7 @@ export class FormLeagueComponent implements OnInit {
 
   public leaguesAvailable: any = [];
 
-  constructor(private httpClient: HttpClient, private apiService: ApiService) {
+  constructor(private httpClient: HttpClient, private apiService: ApiService, private route:Router) {
     this.leaguesAvailable = [
       {
         code: 'FL1',
@@ -64,7 +65,7 @@ export class FormLeagueComponent implements OnInit {
     } else {
       let body = {};
       let url =
-        '/api/league/name=' +
+        'http://45.147.98.151:8080/api/league/name=' +
         this.currentLeagueName +
         '&nbPlayers=' +
         this.currentNbPlayers +
@@ -78,6 +79,7 @@ export class FormLeagueComponent implements OnInit {
           console.log('[POST] from back : ', response);
           this.successCreation = true;
           this.errorCreation = false;
+          this.route.navigate(['/leagues']);
         },
         (error) => {
           console.log('[POST] Erreur', error);
