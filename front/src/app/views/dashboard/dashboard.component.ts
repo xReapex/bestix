@@ -49,7 +49,6 @@ export class DashboardComponent implements OnInit {
       if(date1 < date2)
       {
 
-
         if (this.betResusltList) {
           for(let j = 0; j <= this.betResusltList.length; j++)
           {
