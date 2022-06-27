@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
     this.changeFormat();
 
     //this.testDates();
-    
+
   }
 
   getBetResults()
@@ -48,14 +48,22 @@ export class DashboardComponent implements OnInit {
 
       if(date1 < date2)
       {
-        //this.prevMatchList.push(this.matchsList[0][i]);
-        for(let j = 0; j <= this.betResusltList.length; j++)
-        {
-          if(this.betResusltList[0][j].idMatch == this.matchsList[0][i].id)
+
+
+        if (this.betResusltList) {
+          for(let j = 0; j <= this.betResusltList.length; j++)
           {
-            hasWin = this.betResusltList[0][j].hasWin;
-          }  
+            if(this.betResusltList[0][j].idMatch == this.matchsList[0][i].id)
+            {
+              hasWin = this.betResusltList[0][j].hasWin;
+            }
+
+          }
         }
+
+
+        //this.prevMatchList.push(this.matchsList[0][i]);
+
         this.matchInfos = {
           'matchId' : this.matchsList[0][i].id,
           'id1' : this.matchsList[0][i].firstTeamID,
@@ -90,13 +98,13 @@ export class DashboardComponent implements OnInit {
   changedDate = '';
   pipe = new DatePipe('en-US');
   ChangedFormat: any;
- 
+
   changeFormat(){
     this.ChangedFormat = this.pipe.transform(this.today, 'MM/dd/YYYY');
     this.changedDate = this.ChangedFormat;
     console.log(this.changedDate);
   }
-  
+
 
   testDates()
   {
