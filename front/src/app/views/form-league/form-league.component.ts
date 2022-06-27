@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api-service';
 export class FormLeagueComponent implements OnInit {
   successCreation: boolean = false;
   errorCreation: boolean = false;
-  currentChampionnat = Number ([1]) ;
+  currentChampionnat: any = [1] ;
   currentLeagueName = '';
   currentNbPlayers = '';
 
@@ -61,7 +61,7 @@ export class FormLeagueComponent implements OnInit {
     if (
       this.currentLeagueName == '' ||
       this.currentNbPlayers == '' ||
-      this.currentChampionnat == Number ('')||
+      this.currentChampionnat == [1] ||
       this.currentPassword == ''
     ) {
       this.errorCreation = true;
