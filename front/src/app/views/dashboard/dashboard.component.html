@@ -122,10 +122,7 @@
 <div x-data="setup()" :class="{ 'dark': isDark } ">
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-gradient-to-tr from-blue-800 to-purple-700 text-black dark:text-white">
 
-      
-
-     
-      <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
+      <div class="h-full ml-14 mt-14 mb-10 md:ml-30">
 
         <!-- Statistics Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
@@ -181,7 +178,7 @@
               <div class="block w-full h-full">
                 <div *ngIf="matchsList">
                   <div *ngFor="let match of nextMatchList">
-                    <app-betting-card 
+                    <app-betting-card
                     matchId="{{match.id}}"
                     id1="{{match.firstTeamID}}"
                     id2="{{match.secondTeamID}}"
