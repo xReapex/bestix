@@ -78,4 +78,9 @@ export class ApiService {
   {
     return this.http.get("http://localhost:8080/api/bet/userId=" + userId + "/results");
   }
+
+  public getBetsDoneByUserId(userId: string)
+  {
+    return this.http.get("http://localhost:8080/api/bet/userId=" + userId);
+  }
 }
