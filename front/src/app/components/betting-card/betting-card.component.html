@@ -21,17 +21,15 @@
       </button>
     </div>
     <div>
-      <p> Date : {{ date }}</p>
       <button type="button"
         class="text-bold inline-block px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight uppercase rounded shadow-md"
         *ngIf="canBet != 1 && hasWin == 1" disabled>
         Pari Gagné
       </button>
-      <button type="button"
-        class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md"
+      <div
         *ngIf="canBet != 1 && hasWin == 0" disabled>
-        Pari Perdu
-      </button>
+        <span class="text-sm font-medium bg-green-100 py-1 px-2 rounded text-blue-500 align-middle">{{ date }}</span> <span class="text-sm font-medium bg-red-100 py-1 px-2 rounded text-red-500 align-middle ml-1">Perdu</span>
+      </div>
     </div>
     <div *ngIf="isSubmitted && myForm.invalid">
       <p>Please select either value</p>
@@ -40,7 +38,7 @@
     <!-- Submit Button -->
     <button *ngIf="canBet == 1" (click)="betFunction()" type="submit"
       class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit ml-44">
-      <p *ngIf="canBetOnCard">Parier</p>
+      <p *ngIf="canBetOnCard"><span class="text-sm font-medium bg-green-100 rounded text-green-500 align-middle">Parier</span></p>
       <p *ngIf="hasBet">Parié</p>
     </button>
 
