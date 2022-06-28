@@ -1,9 +1,8 @@
-<hr>
 <!-- Form starts -->
 <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate
   class="">
   <!-- Gender -->
-  <div class="grid grid-cols-4 h-24">
+  <div class="grid grid-cols-4 h-24 mt-2">
     <div>
       <input id="{{ id1 }}" type="radio" class="custom-control-input" name="bet" value="{{ equipe1 }}"
         [(ngModel)]="radio2State" [checked]="true" (change)="onItemChange($event)" *ngIf="canBet == 1 && hasBet != true">
@@ -40,7 +39,7 @@
 
     <!-- Submit Button -->
     <button *ngIf="canBet == 1" (click)="betFunction()" type="submit"
-      class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit">
+      class="rounded-lg text-fuchsia-500 font-bold bg-fuchsia-100 py-1 px-3 text-sm w-fit h-fit ml-44">
       <p *ngIf="canBetOnCard">Parier</p>
       <p *ngIf="hasBet">Parié</p>
     </button>
